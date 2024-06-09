@@ -76,4 +76,13 @@ interface Str {
      * @return string
      */
     public static function lower(string $subject): string;
+
+    /**
+     * Convert Snake-case to Camel-case
+     * @method camel
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function camel(string $subject): string;
 }

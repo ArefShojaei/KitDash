@@ -94,8 +94,7 @@ class Str implements StrContract {
      * @param string $subject
      * @return string
      */
-    public static function upper(string $subject): string
-    {
+    public static function upper(string $subject): string {
         return strtoupper($subject);
     }
 
@@ -106,8 +105,20 @@ class Str implements StrContract {
      * @param string $subject
      * @return string
      */
-    public static function lower(string $subject): string
-    {
+    public static function lower(string $subject): string {
         return strtolower($subject);
+    }
+
+    /**
+     * Convert Snake-case to Camel-case
+     * @method camel
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function camel(string $subject): string {
+        [$firstWord, $lastWord] = explode("_", $subject);
+
+        return $firstWord .  ucfirst($lastWord);
     }
 }
