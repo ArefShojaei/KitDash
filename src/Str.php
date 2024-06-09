@@ -223,4 +223,19 @@ class Str implements StrContract {
     public static function isJSON(string $json): bool {
         return (bool) json_decode($json, true);
     }
+
+    /**
+     * Check to valid URL
+     * @method isURL
+     * @static
+     * @param string $url
+     * @return bool
+     */
+    public static function isURL(string $url): bool {
+        $parsedURL = parse_url($url);
+
+        if (!isset($parsedURL["scheme"])) return false;
+
+        return true;
+    }
 }
