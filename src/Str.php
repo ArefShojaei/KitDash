@@ -10,6 +10,7 @@ namespace Kit;
  * @package
  */
 use Kit\Contracts\Interfaces\String\Str as Contract;
+use Kit\Features\String\HasValidation;
 
 
 
@@ -19,6 +20,13 @@ use Kit\Contracts\Interfaces\String\Str as Contract;
  * @implements StrContract
  */
 class Str implements Contract {
+    /**
+     * Import Traits
+     */
+    use HasValidation;
+
+
+
     /**
      * Constructor
      * @private
@@ -213,31 +221,7 @@ class Str implements Contract {
         return trim($content);
     }
 
-    /**
-     * Check to valid JSON type
-     * @method isJSON
-     * @static
-     * @param string $json
-     * @return bool
-     */
-    public static function isJSON(string $json): bool {
-        return (bool) json_decode($json, true);
-    }
 
-    /**
-     * Check to valid URL
-     * @method isURL
-     * @static
-     * @param string $url
-     * @return bool
-     */
-    public static function isURL(string $url): bool {
-        $parsedURL = parse_url($url);
-
-        if (!isset($parsedURL["scheme"])) return false;
-
-        return true;
-    }
 
     /**
      * Convert Snake-case to Kebab-case
@@ -539,16 +523,5 @@ class Str implements Contract {
      */
     public static function toBase64(string $subject): string {
         return base64_encode($subject);
-    }
-
-    /**
-     * Check to empty a string
-     * @method isEmpty
-     * @static
-     * @param string $subject
-     * @return bool
-     */
-    public static function isEmpty(string $subject): bool {
-        return empty($subject);
     }
 }

@@ -6,12 +6,18 @@
 namespace Kit\Contracts\Interfaces\String;
 
 
+/**
+ * @package
+ */
+use Kit\Contracts\Interfaces\String\Trait\HasValidation;
+
+
 
 /**
  * String interface
  * @interface
  */
-interface Str {
+interface Str extends HasValidation {
     /**
      * Convert special characters
      * @param string $subject
@@ -144,24 +150,6 @@ interface Str {
      * @return string
      */
     public static function headline(string $subject): string;
-
-    /**
-     * Check to valid JSON type
-     * @method isJSON
-     * @static
-     * @param string $json
-     * @return bool
-     */
-    public static function isJSON(string $json): bool;
-
-    /**
-     * Check to valid URL
-     * @method isURL
-     * @static
-     * @param string $url
-     * @return bool
-     */
-    public static function isURL(string $url): bool;
 
     /**
      * Convert Snake-case to Kebab-case
@@ -382,13 +370,4 @@ interface Str {
      * @return string
      */
     public static function toBase64(string $subject): string;
-
-    /**
-     * Check to empty a string
-     * @method isEmpty
-     * @static
-     * @param string $subject
-     * @return bool
-     */
-    public static function isEmpty(string $subject): bool;
 }
