@@ -477,4 +477,15 @@ class Str implements Contract {
     public static function trim($subject, $chars = " "): string {
         return trim($subject, $chars);
     }
+
+    /**
+     * Get Word count of a string
+     * @method wordCount
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function wordCount(string $subject): string {
+        return str_word_count($subject);
+    }
 }
