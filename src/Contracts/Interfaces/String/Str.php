@@ -18,4 +18,14 @@ interface Str {
      * @return string
      */
     public static function e(string $subject): string;
+
+    /**
+     * Get string after a Word or Sentence
+     * @method after
+     * @static
+     * @param string $subject
+     * @param string $search
+     * @return string
+     */
+    public static function after(string $subject, string $search): string;
 }

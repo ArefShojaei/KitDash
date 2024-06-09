@@ -35,4 +35,17 @@ class Str implements StrContract {
     {
         return htmlspecialchars($subject);
     }
+
+    /**
+     * Get string after a Word or Sentence
+     * @method after
+     * @static
+     * @param string $subject
+     * @param string $search
+     * @return string
+     */
+    public static function after(string $subject, string $search): string
+    {
+        return strstr($subject, $search);
+    }
 }
