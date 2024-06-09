@@ -14,6 +14,7 @@ use Kit\Features\String\{
     HasValidation,
     HasDecoration,
     HasCase,
+    HasCountable,
     HasEncodeable,
     HasEscapeable,
     HasModifiable,
@@ -33,7 +34,7 @@ class Str implements Contract {
      */
     use HasValidation, HasDecoration, HasCase,
         HasEscapeable, HasSearch, HasEncodeable,
-        HasModifiable;
+        HasModifiable, HasCountable;
 
 
 
@@ -94,28 +95,6 @@ class Str implements Contract {
      */
     public static function between(string $subject, string $from, string $to): string {
         return str_replace([$from, $to], [null, null], $subject);
-    }
-
-    /**
-     * Get string length
-     * @method length
-     * @static
-     * @param string $subject
-     * @return int
-     */
-    public static function length(string $subject): int {
-        return strlen($subject);
-    }
-
-    /**
-     * Get Word count of a string
-     * @method wordCount
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function wordCount(string $subject): string {
-        return str_word_count($subject);
     }
 
     /**

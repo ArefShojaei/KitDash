@@ -9,8 +9,8 @@ namespace Kit\Contracts\Interfaces\String;
 /**
  * @package
  */
-
 use Kit\Contracts\Interfaces\String\Traits\{
+    HasCountable,
     HasValidation,
     HasDecoration,
     HasEncodeable,
@@ -24,7 +24,7 @@ use Kit\Contracts\Interfaces\String\Traits\{
  * String interface
  * @interface
  */
-interface Str extends HasValidation, HasDecoration, HasEscapeable, HasSearch, HasEncodeable, HasModifiable {
+interface Str extends HasValidation, HasDecoration, HasEscapeable, HasSearch, HasEncodeable, HasModifiable, HasCountable {
     /**
      * Get string after a Word or Sentence
      * @method after
@@ -64,24 +64,6 @@ interface Str extends HasValidation, HasDecoration, HasEscapeable, HasSearch, Ha
      * @return string
      */
     public static function between(string $subject, string $from, string $to): string;
-
-    /**
-     * Get string length
-     * @method length
-     * @static
-     * @param string $subject
-     * @return int
-     */
-    public static function length(string $subject): int;
-
-    /**
-     * Get Word count of a string
-     * @method wordCount
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function wordCount(string $subject): string;
 
     /**
      * Split content of a string by Separator
