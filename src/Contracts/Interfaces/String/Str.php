@@ -323,4 +323,14 @@ interface Str {
      * @return string
      */
     public static function squish(string $subject): string;
+
+    /**
+     * Remove both sides of white spaces
+     * @method trim
+     * @static
+     * @param string $subject
+     * @param string $chars
+     * @return string
+     */
+    public static function trim($subject, $chars = " "): string;
 }

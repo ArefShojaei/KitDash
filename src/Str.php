@@ -451,7 +451,6 @@ class Str implements Contract {
         return trim($content, "-");
     }
 
-
     /**
      * Remove all white spaces
      * @method squish
@@ -465,5 +464,17 @@ class Str implements Contract {
         }, $subject);
 
         return trim($content);
+    }
+
+    /**
+     * Remove both sides of white spaces
+     * @method trim
+     * @static
+     * @param string $subject
+     * @param string $chars
+     * @return string
+     */
+    public static function trim($subject, $chars = " "): string {
+        return trim($subject, $chars);
     }
 }
