@@ -144,4 +144,13 @@ interface Str {
      * @return string
      */
     public static function headline(string $subject): string;
+
+    /**
+     * Check to valid JSON type
+     * @method isJSON
+     * @static
+     * @param string $json
+     * @return bool
+     */
+    public static function isJSON(string $json): bool;
 }

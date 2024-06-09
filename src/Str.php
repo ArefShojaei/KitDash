@@ -212,4 +212,15 @@ class Str implements StrContract {
 
         return trim($content);
     }
+
+    /**
+     * Check to valid JSON type
+     * @method isJSON
+     * @static
+     * @param string $json
+     * @return bool
+     */
+    public static function isJSON(string $json): bool {
+        return (bool) json_decode($json, true);
+    }
 }
