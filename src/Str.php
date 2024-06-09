@@ -185,4 +185,16 @@ class Str implements StrContract {
     public static function endsWith(string $subject, string $search): bool {
         return str_ends_with($subject, $search);
     }
+
+    /**
+     * Check a string that starts with a Word
+     * @method startsWith
+     * @static
+     * @param string $subject
+     * @param string $search
+     * @return bool
+     */
+    public static function startsWith(string $subject, string $search): bool {
+        return str_starts_with($subject, $search);
+    }
 }

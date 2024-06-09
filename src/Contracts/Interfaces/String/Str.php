@@ -125,4 +125,14 @@ interface Str {
      * @return bool
      */
     public static function endsWith(string $subject, string $search): bool;
+
+    /**
+     * Check a string that starts with a Word
+     * @method startsWith
+     * @static
+     * @param string $subject
+     * @param string $search
+     * @return bool
+     */
+    public static function startsWith(string $subject, string $search): bool;
 }
