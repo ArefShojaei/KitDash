@@ -9,15 +9,18 @@ namespace Kit\Contracts\Interfaces\String;
 /**
  * @package
  */
-use Kit\Contracts\Interfaces\String\Trait\HasValidation;
 
+use Kit\Contracts\Interfaces\String\Traits\{
+    HasValidation,
+    HasDecoration
+};
 
 
 /**
  * String interface
  * @interface
  */
-interface Str extends HasValidation {
+interface Str extends HasValidation, HasDecoration {
     /**
      * Convert special characters
      * @param string $subject
@@ -302,25 +305,6 @@ interface Str extends HasValidation {
      * @return string
      */
     public static function snake(string $subject): string;
-
-    /**
-     * Remove all white spaces
-     * @method squish
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function squish(string $subject): string;
-
-    /**
-     * Remove both sides of white spaces
-     * @method trim
-     * @static
-     * @param string $subject
-     * @param string $chars
-     * @return string
-     */
-    public static function trim($subject, $chars = " "): string;
 
     /**
      * Get Word count of a string

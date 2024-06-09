@@ -10,7 +10,10 @@ namespace Kit;
  * @package
  */
 use Kit\Contracts\Interfaces\String\Str as Contract;
-use Kit\Features\String\HasValidation;
+use Kit\Features\String\{
+    HasValidation,
+    HasDecoration
+};
 
 
 
@@ -23,7 +26,7 @@ class Str implements Contract {
     /**
      * Import Traits
      */
-    use HasValidation;
+    use HasValidation, HasDecoration;
 
 
 
@@ -433,33 +436,6 @@ class Str implements Contract {
         }, $subject);
 
         return trim($content, "-");
-    }
-
-    /**
-     * Remove all white spaces
-     * @method squish
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function squish(string $subject): string {
-        $content = preg_replace_callback("/(?<space> ){2,}/", function ($matches) {
-            return " ";
-        }, $subject);
-
-        return trim($content);
-    }
-
-    /**
-     * Remove both sides of white spaces
-     * @method trim
-     * @static
-     * @param string $subject
-     * @param string $chars
-     * @return string
-     */
-    public static function trim($subject, $chars = " "): string {
-        return trim($subject, $chars);
     }
 
     /**
