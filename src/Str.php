@@ -317,4 +317,17 @@ class Str implements Contract {
 
         return $base . str_repeat($character, $contentLength) ;
     }
+
+    /**
+     * Add padding both sides of a string
+     * @method padBoth
+     * @static
+     * @param string $subject
+     * @param int $length
+     * @param string $character
+     * @return string
+     */
+    public static function padBoth(string $subject, int $length, string $character = " "): string {
+        return str_pad($subject, $length, $character, STR_PAD_BOTH);
+    }
 }
