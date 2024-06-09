@@ -206,7 +206,7 @@ class Str implements StrContract {
      * @return string
      */
     public static function headline(string $subject): string {
-        $content = preg_replace_callback("/(?<separator>[A-Z_])/", function ($matches) use ($subject) {
+        $content = preg_replace_callback("/(?<separator>[A-Z_])/", function ($matches) {
             return " " . $matches["separator"];
         }, $subject);
 
