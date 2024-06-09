@@ -238,4 +238,19 @@ class Str implements StrContract {
 
         return true;
     }
+
+    /**
+     * Convert Snake-case to Kebab-case
+     * @method kebab
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function kebab(string $subject): string {
+        $content = preg_replace_callback("/(?<separator>[A-Z])/", function ($matches) {
+            return "-" . $matches["separator"];
+        }, $subject);
+
+        return trim($content, "-");
+    }
 }

@@ -162,4 +162,13 @@ interface Str {
      * @return bool
      */
     public static function isURL(string $url): bool;
+
+    /**
+     * Convert Snake-case to Kebab-case
+     * @method kebab
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function kebab(string $subject): string;
 }
