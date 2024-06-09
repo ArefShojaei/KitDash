@@ -87,15 +87,6 @@ interface Str extends HasValidation, HasDecoration {
     public static function lower(string $subject): string;
 
     /**
-     * Convert Snake-case to Camel-case
-     * @method camel
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function camel(string $subject): string;
-
-    /**
      * Get word of string by Index
      * @method charAt
      * @static
@@ -153,15 +144,6 @@ interface Str extends HasValidation, HasDecoration {
      * @return string
      */
     public static function headline(string $subject): string;
-
-    /**
-     * Convert Snake-case to Kebab-case
-     * @method kebab
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function kebab(string $subject): string;
 
     /**
      * Get string length
@@ -297,16 +279,6 @@ interface Str extends HasValidation, HasDecoration {
     public static function slug($subject, $separator = "-"): string;
 
     /**
-     * Convert Camel-case to Snake-case
-     * @method slug
-     * @static
-     * @param string $subject
-     * @param string $separator
-     * @return string
-     */
-    public static function snake(string $subject): string;
-
-    /**
      * Get Word count of a string
      * @method wordCount
      * @static
@@ -335,16 +307,6 @@ interface Str extends HasValidation, HasDecoration {
      * @return string
      */
     public static function substr(string $subject, int $offset, int $length): string;
-
-    /**
-     * Convert string to Title-case
-     * @method title
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function title(string $subject): string;
-
 
     /**
      * Convert string to Base64 encoding
