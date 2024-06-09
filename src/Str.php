@@ -434,4 +434,20 @@ class Str implements Contract {
 
         return implode($separator, $parsedString);
     }
+
+    /**
+     * Convert Camel-case to Snake-case
+     * @method slug
+     * @static
+     * @param string $subject
+     * @param string $separator
+     * @return string
+     */
+    public static function snake(string $subject): string {
+        $content = preg_replace_callback("/(?<separator>[A-Z])/", function ($matches) {
+            return "_" . $matches["separator"];
+        }, $subject);
+
+        return trim($content, "-");
+    }
 }

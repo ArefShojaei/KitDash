@@ -304,4 +304,14 @@ interface Str {
      * @return string
      */
     public static function slug($subject, $separator = "-"): string;
+
+    /**
+     * Convert Camel-case to Snake-case
+     * @method slug
+     * @static
+     * @param string $subject
+     * @param string $separator
+     * @return string
+     */
+    public static function snake(string $subject): string;
 }
