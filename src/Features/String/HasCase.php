@@ -70,4 +70,19 @@ trait HasCase {
 
         return $firstWord .  ucfirst($lastWord);
     }
+
+    /**
+     * Convert Pascal-case to Title-case
+     * @method headline
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function headline(string $subject): string {
+        $content = preg_replace_callback("/(?<separator>[A-Z_])/", function ($matches) {
+            return " " . $matches["separator"];
+        }, $subject);
+
+        return trim($content);
+    }
 }

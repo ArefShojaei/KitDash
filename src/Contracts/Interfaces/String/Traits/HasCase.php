@@ -48,4 +48,13 @@ interface HasCase {
      * @return string
      */
     public static function camel(string $subject): string;
+
+    /**
+     * Convert Pascal-case to Title-case
+     * @method headline
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function headline(string $subject): string;
 }

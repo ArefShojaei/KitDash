@@ -83,15 +83,6 @@ interface Str extends HasValidation, HasDecoration, HasEscapeable, HasSearch, Ha
     public static function lower(string $subject): string;
 
     /**
-     * Convert Pascal-case to Title-case
-     * @method headline
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function headline(string $subject): string;
-
-    /**
      * Get string length
      * @method length
      * @static
