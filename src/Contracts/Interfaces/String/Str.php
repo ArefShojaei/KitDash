@@ -85,4 +85,14 @@ interface Str {
      * @return string
      */
     public static function camel(string $subject): string;
+
+    /**
+     * Get word of string by Index
+     * @method charAt
+     * @static
+     * @param string $subject
+     * @param int $index
+     * @return string
+     */
+    public static function charAt(string $subject, int $index): string;
 }

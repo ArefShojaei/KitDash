@@ -121,4 +121,16 @@ class Str implements StrContract {
 
         return $firstWord .  ucfirst($lastWord);
     }
+
+    /**
+     * Get word of string by Index
+     * @method charAt
+     * @static
+     * @param string $subject
+     * @param int $index
+     * @return string
+     */
+    public static function charAt(string $subject, int $index): string {
+        return $subject[$index] ?? 0;
+    }
 }
