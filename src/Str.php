@@ -60,4 +60,17 @@ class Str implements StrContract {
 
         return current($parsedString);
     }
+
+    /**
+     * Get Class name in a namespace as string
+     * @method classBaseName
+     * @static
+     * @param string $namespace
+     * @return string
+     */
+    public static function classBaseName(string $namespace): string {
+        $parsedString = explode("\\", $namespace);
+
+        return end($parsedString);
+    }
 }

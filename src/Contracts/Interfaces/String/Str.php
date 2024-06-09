@@ -38,4 +38,13 @@ interface Str {
      * @return string
      */
     public static function before(string $subject, string $search): string;
+
+    /**
+     * Get Class name in a namespace as string
+     * @method classBaseName
+     * @static
+     * @param string $namespace
+     * @return string
+     */
+    public static function classBaseName(string $namespace): string;
 }
