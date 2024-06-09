@@ -1,0 +1,24 @@
+{
+    "name": "arefshojaei/kitdash",
+    "description": "PHP library like Loadash (JS)",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "Loadash",
+        "Kit",
+        "Helper"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ArefShojaei",
+            "email": "arefshojaei82dev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
