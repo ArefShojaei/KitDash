@@ -8,7 +8,7 @@ namespace Kit\Contracts\Interfaces\String;
 
 
 /**
- * Str interface
+ * String interface
  * @interface
  */
 interface Str {}
