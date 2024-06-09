@@ -450,4 +450,20 @@ class Str implements Contract {
 
         return trim($content, "-");
     }
+
+
+    /**
+     * Remove all white spaces
+     * @method squish
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function squish(string $subject): string {
+        $content = preg_replace_callback("/(?<space> ){2,}/", function ($matches) {
+            return " ";
+        }, $subject);
+
+        return trim($content);
+    }
 }

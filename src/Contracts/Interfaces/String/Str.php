@@ -314,4 +314,13 @@ interface Str {
      * @return string
      */
     public static function snake(string $subject): string;
+
+    /**
+     * Remove all white spaces
+     * @method squish
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function squish(string $subject): string;
 }
