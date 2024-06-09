@@ -13,7 +13,8 @@ use Kit\Contracts\Interfaces\String\Str as Contract;
 use Kit\Features\String\{
     HasValidation,
     HasDecoration,
-    HasCase
+    HasCase,
+    HasEscapeable
 };
 
 
@@ -27,7 +28,7 @@ class Str implements Contract {
     /**
      * Import Traits
      */
-    use HasValidation, HasDecoration, HasCase;
+    use HasValidation, HasDecoration, HasCase, HasEscapeable;
 
 
 
@@ -38,14 +39,6 @@ class Str implements Contract {
     private function __construct() {}
 
 
-    /**
-     * Convert special characters
-     * @param string $subject
-     * @return string
-     */
-    public static function e(string $subject): string {
-        return htmlspecialchars($subject);
-    }
 
     /**
      * Get string after a Word or Sentence

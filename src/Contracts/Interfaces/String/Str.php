@@ -12,7 +12,8 @@ namespace Kit\Contracts\Interfaces\String;
 
 use Kit\Contracts\Interfaces\String\Traits\{
     HasValidation,
-    HasDecoration
+    HasDecoration,
+    HasEscapeable
 };
 
 
@@ -20,14 +21,7 @@ use Kit\Contracts\Interfaces\String\Traits\{
  * String interface
  * @interface
  */
-interface Str extends HasValidation, HasDecoration {
-    /**
-     * Convert special characters
-     * @param string $subject
-     * @return string
-     */
-    public static function e(string $subject): string;
-
+interface Str extends HasValidation, HasDecoration, HasEscapeable {
     /**
      * Get string after a Word or Sentence
      * @method after
