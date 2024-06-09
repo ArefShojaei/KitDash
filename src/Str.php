@@ -343,4 +343,17 @@ class Str implements Contract {
     public static function padRight(string $subject, int $length, string $character = " "): string {
         return str_pad($subject, $length, $character, STR_PAD_RIGHT);
     }
+
+    /**
+     * Add padding left side of a string
+     * @method padLeft
+     * @static
+     * @param string $subject
+     * @param int $length
+     * @param string $character
+     * @return string
+     */
+    public static function padLeft(string $subject, int $length, string $character = " "): string {
+        return str_pad($subject, $length, $character, STR_PAD_LEFT);
+    }
 }
