@@ -285,4 +285,13 @@ interface Str {
      * @return string
      */
     public static function replace(string|array $search, string|array $replace, string $subject): string;
+
+    /**
+     * Reverse string
+     * @method reverse
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function reverse(string $subject): string;
 }

@@ -409,4 +409,15 @@ class Str implements Contract {
     public static function replace(string|array $search, string|array $replace, string $subject): string {
         return str_replace($search, $replace, $subject);
     }
+
+    /**
+     * Reverse string
+     * @method reverse
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function reverse(string $subject): string {
+        return strrev($subject);
+    }
 }
