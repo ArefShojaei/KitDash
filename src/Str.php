@@ -31,8 +31,7 @@ class Str implements StrContract {
      * @param string $subject
      * @return string
      */
-    public static function e(string $subject): string
-    {
+    public static function e(string $subject): string {
         return htmlspecialchars($subject);
     }
 
@@ -44,8 +43,7 @@ class Str implements StrContract {
      * @param string $search
      * @return string
      */
-    public static function after(string $subject, string $search): string
-    {
+    public static function after(string $subject, string $search): string {
         return strstr($subject, $search);
     }
 
@@ -57,8 +55,7 @@ class Str implements StrContract {
      * @param string $search
      * @return string
      */
-    public static function before(string $subject, string $search): string
-    {
+    public static function before(string $subject, string $search): string {
         $parsedString = explode($search, $subject);
 
         return current($parsedString);
