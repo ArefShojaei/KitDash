@@ -529,4 +529,15 @@ class Str implements Contract {
 
         return trim($content);
     }
+
+    /**
+     * Convert string to Base64 encoding
+     * @method toBase64
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function toBase64(string $subject): string {
+        return base64_encode($subject);
+    }
 }

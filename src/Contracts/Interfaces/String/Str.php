@@ -372,4 +372,14 @@ interface Str {
      * @return string
      */
     public static function title(string $subject): string;
+
+
+    /**
+     * Convert string to Base64 encoding
+     * @method toBase64
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function toBase64(string $subject): string;
 }
