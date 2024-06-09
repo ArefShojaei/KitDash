@@ -46,32 +46,6 @@ class Str implements Contract {
 
 
     /**
-     * Get string after a Word or Sentence
-     * @method after
-     * @static
-     * @param string $subject
-     * @param string $search
-     * @return string
-     */
-    public static function after(string $subject, string $search): string {
-        return strstr($subject, $search);
-    }
-
-    /**
-     * Get string before a Word or Sentence
-     * @method before
-     * @static
-     * @param string $subject
-     * @param string $search
-     * @return string
-     */
-    public static function before(string $subject, string $search): string {
-        $parsedString = explode($search, $subject);
-
-        return current($parsedString);
-    }
-
-    /**
      * Get Class name in a namespace as string
      * @method classBaseName
      * @static

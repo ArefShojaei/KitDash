@@ -26,26 +26,6 @@ use Kit\Contracts\Interfaces\String\Traits\{
  */
 interface Str extends HasValidation, HasDecoration, HasEscapeable, HasSearch, HasEncodeable, HasModifiable, HasCountable {
     /**
-     * Get string after a Word or Sentence
-     * @method after
-     * @static
-     * @param string $subject
-     * @param string $search
-     * @return string
-     */
-    public static function after(string $subject, string $search): string;
-
-    /**
-     * Get string before a Word or Sentence
-     * @method before
-     * @static
-     * @param string $subject
-     * @param string $search
-     * @return string
-     */
-    public static function before(string $subject, string $search): string;
-
-    /**
      * Get Class name in a namespace as string
      * @method classBaseName
      * @static
