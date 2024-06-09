@@ -135,7 +135,7 @@ class Str implements StrContract {
     }
 
     /**
-     * Check to exist a Word or Sentence in a string
+     * Check to exist a Word in a string
      * @method contains
      * @static
      * @param string $subject
