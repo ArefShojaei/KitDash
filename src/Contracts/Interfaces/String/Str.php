@@ -13,6 +13,7 @@ namespace Kit\Contracts\Interfaces\String;
 use Kit\Contracts\Interfaces\String\Traits\{
     HasValidation,
     HasDecoration,
+    HasEncodeable,
     HasEscapeable,
     HasSearch
 };
@@ -22,7 +23,7 @@ use Kit\Contracts\Interfaces\String\Traits\{
  * String interface
  * @interface
  */
-interface Str extends HasValidation, HasDecoration, HasEscapeable, HasSearch {
+interface Str extends HasValidation, HasDecoration, HasEscapeable, HasSearch, HasEncodeable {
     /**
      * Get string after a Word or Sentence
      * @method after
@@ -242,13 +243,4 @@ interface Str extends HasValidation, HasDecoration, HasEscapeable, HasSearch {
      * @return string
      */
     public static function substr(string $subject, int $offset, int $length): string;
-
-    /**
-     * Convert string to Base64 encoding
-     * @method toBase64
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function toBase64(string $subject): string;
 }

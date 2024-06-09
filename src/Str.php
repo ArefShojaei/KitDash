@@ -14,6 +14,7 @@ use Kit\Features\String\{
     HasValidation,
     HasDecoration,
     HasCase,
+    HasEncodeable,
     HasEscapeable,
     HasSearch
 };
@@ -30,7 +31,7 @@ class Str implements Contract {
      * Import Traits
      */
     use HasValidation, HasDecoration, HasCase,
-        HasEscapeable, HasSearch;
+        HasEscapeable, HasSearch, HasEncodeable;
 
 
 
@@ -335,16 +336,5 @@ class Str implements Contract {
      */
     public static function substr(string $subject, int $offset, int $length): string {
         return substr($subject, $offset, $length);
-    }
-
-    /**
-     * Convert string to Base64 encoding
-     * @method toBase64
-     * @static
-     * @param string $subject
-     * @return string
-     */
-    public static function toBase64(string $subject): string {
-        return base64_encode($subject);
     }
 }
