@@ -294,4 +294,14 @@ interface Str {
      * @return string
      */
     public static function reverse(string $subject): string;
+
+    /**
+     * Add slug for URL
+     * @method slug
+     * @static
+     * @param string $subject
+     * @param string $separator
+     * @return string
+     */
+    public static function slug($subject, $separator = "-"): string;
 }

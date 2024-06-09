@@ -420,4 +420,18 @@ class Str implements Contract {
     public static function reverse(string $subject): string {
         return strrev($subject);
     }
+
+    /**
+     * Add slug for URL
+     * @method slug
+     * @static
+     * @param string $subject
+     * @param string $separator
+     * @return string
+     */
+    public static function slug($subject, $separator = "-"): string {
+        $parsedString = explode(" ", $subject);
+
+        return implode($separator, $parsedString);
+    }
 }
