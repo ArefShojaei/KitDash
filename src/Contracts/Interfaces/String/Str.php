@@ -180,4 +180,13 @@ interface Str {
      * @return int
      */
     public static function length(string $subject): int;
+
+    /**
+     * Convert first char of string to Lower-case
+     * @method lcfirst
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function lcfirst(string $subject): string;
 }

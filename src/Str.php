@@ -264,4 +264,21 @@ class Str implements StrContract {
     public static function length(string $subject): int {
         return strlen($subject);
     }
+    
+    /**
+     * Convert first char of string to Lower-case
+     * @method lcfirst
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function lcfirst(string $subject): string {
+        # Index
+        $firstCharIndex = 0;
+
+        # Char
+        $firstChar = $subject[$firstCharIndex];
+
+        return strtolower($firstChar) . substr($subject, $firstCharIndex + 1);
+    }
 }
