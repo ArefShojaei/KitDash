@@ -59,19 +59,6 @@ class Str implements Contract {
     }
 
     /**
-     * Get center content in a string by between sentences
-     * @method between
-     * @static
-     * @param string $subject
-     * @param string $from
-     * @param string $to
-     * @return string
-     */
-    public static function between(string $subject, string $from, string $to): string {
-        return str_replace([$from, $to], [null, null], $subject);
-    }
-
-    /**
      * Split content of a string by Separator
      * @method split
      * @static
