@@ -363,4 +363,13 @@ interface Str {
      * @return string
      */
     public static function substr(string $subject, int $offset, int $length): string;
+
+    /**
+     * Convert string to Title-case
+     * @method title
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function title(string $subject): string;
 }

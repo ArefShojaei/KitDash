@@ -514,4 +514,19 @@ class Str implements Contract {
     public static function substr(string $subject, int $offset, int $length): string {
         return substr($subject, $offset, $length);
     }
+
+    /**
+     * Convert string to Title-case
+     * @method title
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function title(string $subject): string {
+        $content = preg_replace_callback("/(?<character>^[a-z]|\s[a-z])/", function ($matches) {
+            return strtoupper($matches['character']);
+        }, $subject);
+
+        return trim($content);
+    }
 }
