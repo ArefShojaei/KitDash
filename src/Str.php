@@ -9,7 +9,7 @@ namespace Kit;
 /**
  * @package
  */
-use Kit\Contracts\Interfaces\String\Str as StrContract;
+use Kit\Contracts\Interfaces\String\Str as Contract;
 
 
 
@@ -18,7 +18,7 @@ use Kit\Contracts\Interfaces\String\Str as StrContract;
  * @class
  * @implements StrContract
  */
-class Str implements StrContract {
+class Str implements Contract {
     /**
      * Constructor
      * @private
