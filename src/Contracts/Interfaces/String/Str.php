@@ -382,4 +382,13 @@ interface Str {
      * @return string
      */
     public static function toBase64(string $subject): string;
+
+    /**
+     * Check to empty a string
+     * @method isEmpty
+     * @static
+     * @param string $subject
+     * @return bool
+     */
+    public static function isEmpty(string $subject): bool;
 }

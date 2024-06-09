@@ -540,4 +540,15 @@ class Str implements Contract {
     public static function toBase64(string $subject): string {
         return base64_encode($subject);
     }
+
+    /**
+     * Check to empty a string
+     * @method isEmpty
+     * @static
+     * @param string $subject
+     * @return bool
+     */
+    public static function isEmpty(string $subject): bool {
+        return empty($subject);
+    }
 }
