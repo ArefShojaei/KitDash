@@ -17,6 +17,7 @@ use Kit\Features\String\{
     HasCountable,
     HasEncodeable,
     HasEscapeable,
+    HasExtraction,
     HasModifiable,
     HasSearch
 };
@@ -34,7 +35,7 @@ class Str implements Contract {
      */
     use HasValidation, HasDecoration, HasCase,
         HasEscapeable, HasSearch, HasEncodeable,
-        HasModifiable, HasCountable;
+        HasModifiable, HasCountable, HasExtraction;
 
 
 
@@ -43,43 +44,4 @@ class Str implements Contract {
      * @private
      */
     private function __construct() {}
-
-
-    /**
-     * Get Class name in a namespace as string
-     * @method classBaseName
-     * @static
-     * @param string $namespace
-     * @return string
-     */
-    public static function classBaseName(string $namespace): string {
-        $parsedString = explode("\\", $namespace);
-
-        return end($parsedString);
-    }
-
-    /**
-     * Split content of a string by Separator
-     * @method split
-     * @static
-     * @param string $subject
-     * @param string $separator
-     * @return array
-     */
-    public static function split(string $subject, string $separator): array {
-        return explode($separator, $subject);
-    }
-
-    /**
-     * Slice content of a string by Offset & Length
-     * @method substr
-     * @static
-     * @param string $subject
-     * @param int $offset
-     * @param int $length
-     * @return string
-     */
-    public static function substr(string $subject, int $offset, int $length): string {
-        return substr($subject, $offset, $length);
-    }
 }

@@ -61,4 +61,30 @@ trait HasSearch {
 
         return current($parsedString);
     }
+
+    /**
+     * Get Class name in a namespace as string
+     * @method classBaseName
+     * @static
+     * @param string $namespace
+     * @return string
+     */
+    public static function classBaseName(string $namespace): string {
+        $parsedString = explode("\\", $namespace);
+
+        return end($parsedString);
+    }
+
+    /**
+     * Slice content of a string by Offset & Length
+     * @method substr
+     * @static
+     * @param string $subject
+     * @param int $offset
+     * @param int $length
+     * @return string
+     */
+    public static function substr(string $subject, int $offset, int $length): string {
+        return substr($subject, $offset, $length);
+    }
 }
