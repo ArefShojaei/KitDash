@@ -368,4 +368,20 @@ class Str implements Contract {
     public static function position(string $subject, string $search): string {
         return strpos($subject, $search);
     }
+
+    /**
+     * Remove character of a string
+     * @method remove
+     * @static
+     * @param string $character
+     * @param string $subject
+     * @return string
+     */
+    public static function remove(string $character, string $subject): string {
+        $content = preg_replace_callback("/(?<character>{$character})/", function ($matches) {
+            return null;
+        }, $subject);
+
+        return trim($content);
+    }
 }

@@ -254,4 +254,14 @@ interface Str {
      * @return string
      */
     public static function position(string $subject, string $search): string;
+
+    /**
+     * Remove character of a string
+     * @method remove
+     * @static
+     * @param string $character
+     * @param string $subject
+     * @return string
+     */
+    public static function remove(string $character, string $subject): string;
 }
