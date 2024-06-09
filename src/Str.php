@@ -384,4 +384,16 @@ class Str implements Contract {
 
         return trim($content);
     }
+
+    /**
+     * Repeat string by Count
+     * @method repeat
+     * @static
+     * @param string $subject
+     * @param int $count
+     * @return string
+     */
+    public static function repeat(string $subject, int $count): string {
+        return str_repeat($subject, $count);
+    }
 }

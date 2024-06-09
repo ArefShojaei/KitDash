@@ -264,4 +264,14 @@ interface Str {
      * @return string
      */
     public static function remove(string $character, string $subject): string;
+
+    /**
+     * Repeat string by Count
+     * @method repeat
+     * @static
+     * @param string $subject
+     * @param int $count
+     * @return string
+     */
+    public static function repeat(string $subject, int $count): string;
 }
