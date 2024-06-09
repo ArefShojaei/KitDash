@@ -197,4 +197,19 @@ class Str implements StrContract {
     public static function startsWith(string $subject, string $search): bool {
         return str_starts_with($subject, $search);
     }
+
+    /**
+     * Convert Pascal-case to Title-case
+     * @method headline
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function headline(string $subject): string {
+        $content = preg_replace_callback("/(?<separator>[A-Z_])/", function ($matches) use ($subject) {
+            return " " . $matches["separator"];
+        }, $subject);
+
+        return trim($content);
+    }
 }

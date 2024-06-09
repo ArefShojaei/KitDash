@@ -135,4 +135,13 @@ interface Str {
      * @return bool
      */
     public static function startsWith(string $subject, string $search): bool;
+
+    /**
+     * Convert Pascal-case to Title-case
+     * @method headline
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function headline(string $subject): string;
 }
