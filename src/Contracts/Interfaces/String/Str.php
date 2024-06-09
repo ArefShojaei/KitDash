@@ -67,4 +67,13 @@ interface Str {
      * @return string
      */
     public static function upper(string $subject): string;
+
+    /**
+     * Convert string to Lower case
+     * @method upper
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function lower(string $subject): string;
 }

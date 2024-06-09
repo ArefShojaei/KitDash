@@ -98,4 +98,16 @@ class Str implements StrContract {
     {
         return strtoupper($subject);
     }
+
+    /**
+     * Convert string to Lower case
+     * @method upper
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function lower(string $subject): string
+    {
+        return strtolower($subject);
+    }
 }
