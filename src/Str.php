@@ -396,4 +396,17 @@ class Str implements Contract {
     public static function repeat(string $subject, int $count): string {
         return str_repeat($subject, $count);
     }
+
+    /**
+     * Replace value in a string
+     * @method replace
+     * @static
+     * @param string|array $search
+     * @param string|array $replace
+     * @param string $subject
+     * @return string
+     */
+    public static function replace(string|array $search, string|array $replace, string $subject): string {
+        return str_replace($search, $replace, $subject);
+    }
 }

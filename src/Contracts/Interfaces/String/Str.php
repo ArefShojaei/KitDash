@@ -274,4 +274,15 @@ interface Str {
      * @return string
      */
     public static function repeat(string $subject, int $count): string;
+
+    /**
+     * Replace value in a string
+     * @method replace
+     * @static
+     * @param string|array $search
+     * @param string|array $replace
+     * @param string $subject
+     * @return string
+     */
+    public static function replace(string|array $search, string|array $replace, string $subject): string;
 }
