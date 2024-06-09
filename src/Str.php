@@ -293,4 +293,28 @@ class Str implements StrContract {
     public static function limit(string $subject, int $length): string {
         return substr($subject, 0, $length) . "...";
     }
+
+
+    /**
+     * Mask content of a string by Index
+     * @method mask
+     * @static
+     * @param string $subject
+     * @param string $character
+     * @param int $index
+     * @return string
+     */
+    public static function mask(string $subject, string $character, int $index): string {
+        # First Slice of string
+        $base = substr($subject, 0, $index);
+
+        # Second Slice of string
+        $content = substr($subject, $index);
+
+        # String length of the last slice
+        $contentLength = strlen($content);
+
+
+        return $base . str_repeat($character, $contentLength) ;
+    }
 }

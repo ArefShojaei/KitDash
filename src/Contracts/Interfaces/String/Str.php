@@ -199,4 +199,16 @@ interface Str {
      * @return string
      */
     public static function limit(string $subject, int $length): string;
+
+
+    /**
+     * Mask content of a string by Index
+     * @method mask
+     * @static
+     * @param string $subject
+     * @param string $character
+     * @param int $index
+     * @return string
+     */
+    public static function mask(string $subject, string $character, int $index): string;
 }
