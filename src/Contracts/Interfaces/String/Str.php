@@ -225,7 +225,7 @@ interface Str {
 
     /**
      * Add padding right side of a string
-     * @method padBoth
+     * @method padRight
      * @static
      * @param string $subject
      * @param int $length
