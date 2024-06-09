@@ -342,4 +342,14 @@ interface Str {
      * @return string
      */
     public static function wordCount(string $subject): string;
+
+    /**
+     * Split content of a string by Separator
+     * @method split
+     * @static
+     * @param string $subject
+     * @param string $separator
+     * @return array
+     */
+    public static function split(string $subject, string $separator): array;
 }

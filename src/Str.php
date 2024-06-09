@@ -488,4 +488,17 @@ class Str implements Contract {
     public static function wordCount(string $subject): string {
         return str_word_count($subject);
     }
+
+
+    /**
+     * Split content of a string by Separator
+     * @method split
+     * @static
+     * @param string $subject
+     * @param string $separator
+     * @return array
+     */
+    public static function split(string $subject, string $separator): array {
+        return explode($separator, $subject);
+    }
 }
