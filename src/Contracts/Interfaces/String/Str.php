@@ -352,4 +352,15 @@ interface Str {
      * @return array
      */
     public static function split(string $subject, string $separator): array;
+
+    /**
+     * Slice content of a string by Offset & Length
+     * @method substr
+     * @static
+     * @param string $subject
+     * @param int $offset
+     * @param int $length
+     * @return string
+     */
+    public static function substr(string $subject, int $offset, int $length): string;
 }
