@@ -86,4 +86,16 @@ class Str implements StrContract {
     public static function between(string $subject, string $from, string $to): string {
         return str_replace([$from, $to], [null, null], $subject);
     }
+
+    /**
+     * Convert string to Upper case
+     * @method upper
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function upper(string $subject): string
+    {
+        return strtoupper($subject);
+    }
 }

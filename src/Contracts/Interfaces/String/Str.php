@@ -58,4 +58,13 @@ interface Str {
      * @return string
      */
     public static function between(string $subject, string $from, string $to): string;
+
+    /**
+     * Convert string to Upper case
+     * @method upper
+     * @static
+     * @param string $subject
+     * @return string
+     */
+    public static function upper(string $subject): string;
 }
