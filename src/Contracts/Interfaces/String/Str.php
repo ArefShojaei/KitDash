@@ -171,4 +171,13 @@ interface Str {
      * @return string
      */
     public static function kebab(string $subject): string;
+
+    /**
+     * Get string length
+     * @method length
+     * @static
+     * @param string $subject
+     * @return int
+     */
+    public static function length(string $subject): int;
 }

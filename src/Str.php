@@ -253,4 +253,15 @@ class Str implements StrContract {
 
         return trim($content, "-");
     }
+
+    /**
+     * Get string length
+     * @method length
+     * @static
+     * @param string $subject
+     * @return int
+     */
+    public static function length(string $subject): int {
+        return strlen($subject);
+    }
 }
