@@ -222,4 +222,15 @@ interface Str {
      * @return string
      */
     public static function padBoth(string $subject, int $length, string $character = " "): string;
+
+    /**
+     * Add padding right side of a string
+     * @method padBoth
+     * @static
+     * @param string $subject
+     * @param int $length
+     * @param string $character
+     * @return string
+     */
+    public static function padRight(string $subject, int $length, string $character = " "): string;
 }
