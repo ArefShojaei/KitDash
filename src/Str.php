@@ -173,4 +173,16 @@ class Str implements StrContract {
 
         return $state;
     }
+
+    /**
+     * Check a string that ends with a Word
+     * @method endsWith
+     * @static
+     * @param string $subject
+     * @param string $search
+     * @return bool
+     */
+    public static function endsWith(string $subject, string $search): bool {
+        return str_ends_with($subject, $search);
+    }
 }

@@ -115,4 +115,14 @@ interface Str {
      * @return bool
      */
     public static function containsAll(string $subject, array $search): bool;
+
+    /**
+     * Check a string that ends with a Word
+     * @method endsWith
+     * @static
+     * @param string $subject
+     * @param string $search
+     * @return bool
+     */
+    public static function endsWith(string $subject, string $search): bool;
 }
