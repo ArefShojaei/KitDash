@@ -48,4 +48,19 @@ class Str implements StrContract {
     {
         return strstr($subject, $search);
     }
+
+    /**
+     * Get string before a Word or Sentence
+     * @method before
+     * @static
+     * @param string $subject
+     * @param string $search
+     * @return string
+     */
+    public static function before(string $subject, string $search): string
+    {
+        $parsedString = explode($search, $subject);
+
+        return current($parsedString);
+    }
 }
