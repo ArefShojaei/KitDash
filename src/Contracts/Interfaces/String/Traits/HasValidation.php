@@ -3,7 +3,7 @@
 /**
  * @namespace
  */
-namespace Kit\Contracts\Interfaces\String\Trait;
+namespace Kit\Contracts\Interfaces\String\Traits;
 
 
 
