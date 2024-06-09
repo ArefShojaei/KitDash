@@ -281,4 +281,16 @@ class Str implements StrContract {
 
         return strtolower($firstChar) . substr($subject, $firstCharIndex + 1);
     }
+
+    /**
+     * Limit content of a string
+     * @method limit
+     * @static
+     * @param string $subject
+     * @param int $length
+     * @return string
+     */
+    public static function limit(string $subject, int $length): string {
+        return substr($subject, 0, $length) . "...";
+    }
 }
