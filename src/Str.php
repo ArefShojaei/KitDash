@@ -133,4 +133,16 @@ class Str implements StrContract {
     public static function charAt(string $subject, int $index): string {
         return $subject[$index] ?? 0;
     }
+
+    /**
+     * Check to exist a Word or Sentence in a string
+     * @method contains
+     * @static
+     * @param string $subject
+     * @param string $search
+     * @return bool
+     */
+    public static function contains(string $subject, string $search): bool {
+        return str_contains($subject, $search);
+    }
 }
