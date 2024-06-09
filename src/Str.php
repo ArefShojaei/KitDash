@@ -14,7 +14,8 @@ use Kit\Features\String\{
     HasValidation,
     HasDecoration,
     HasCase,
-    HasEscapeable
+    HasEscapeable,
+    HasSearch
 };
 
 
@@ -28,7 +29,8 @@ class Str implements Contract {
     /**
      * Import Traits
      */
-    use HasValidation, HasDecoration, HasCase, HasEscapeable;
+    use HasValidation, HasDecoration, HasCase,
+        HasEscapeable, HasSearch;
 
 
 
@@ -112,18 +114,6 @@ class Str implements Contract {
      */
     public static function lower(string $subject): string {
         return strtolower($subject);
-    }
-
-    /**
-     * Get word of string by Index
-     * @method charAt
-     * @static
-     * @param string $subject
-     * @param int $index
-     * @return string
-     */
-    public static function charAt(string $subject, int $index): string {
-        return $subject[$index] ?? 0;
     }
 
     /**
@@ -242,18 +232,6 @@ class Str implements Contract {
      */
     public static function padLeft(string $subject, int $length, string $character = " "): string {
         return str_pad($subject, $length, $character, STR_PAD_LEFT);
-    }
-
-    /**
-     * Get position of a Word in a string
-     * @method position
-     * @static
-     * @param string $subject
-     * @param string $search
-     * @return string
-     */
-    public static function position(string $subject, string $search): string {
-        return strpos($subject, $search);
     }
 
     /**

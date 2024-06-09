@@ -13,7 +13,8 @@ namespace Kit\Contracts\Interfaces\String;
 use Kit\Contracts\Interfaces\String\Traits\{
     HasValidation,
     HasDecoration,
-    HasEscapeable
+    HasEscapeable,
+    HasSearch
 };
 
 
@@ -21,7 +22,7 @@ use Kit\Contracts\Interfaces\String\Traits\{
  * String interface
  * @interface
  */
-interface Str extends HasValidation, HasDecoration, HasEscapeable {
+interface Str extends HasValidation, HasDecoration, HasEscapeable, HasSearch {
     /**
      * Get string after a Word or Sentence
      * @method after
@@ -79,56 +80,6 @@ interface Str extends HasValidation, HasDecoration, HasEscapeable {
      * @return string
      */
     public static function lower(string $subject): string;
-
-    /**
-     * Get word of string by Index
-     * @method charAt
-     * @static
-     * @param string $subject
-     * @param int $index
-     * @return string
-     */
-    public static function charAt(string $subject, int $index): string;
-
-    /**
-     * Check to exist a Word in a string
-     * @method contains
-     * @static
-     * @param string $subject
-     * @param string $search
-     * @return bool
-     */
-    public static function contains(string $subject, string $search): bool;
-
-        /**
-     * Check to exist all Words in a string 
-     * @method containsAll
-     * @static
-     * @param string $subject
-     * @param array $search
-     * @return bool
-     */
-    public static function containsAll(string $subject, array $search): bool;
-
-    /**
-     * Check a string that ends with a Word
-     * @method endsWith
-     * @static
-     * @param string $subject
-     * @param string $search
-     * @return bool
-     */
-    public static function endsWith(string $subject, string $search): bool;
-
-    /**
-     * Check a string that starts with a Word
-     * @method startsWith
-     * @static
-     * @param string $subject
-     * @param string $search
-     * @return bool
-     */
-    public static function startsWith(string $subject, string $search): bool;
 
     /**
      * Convert Pascal-case to Title-case
@@ -211,16 +162,6 @@ interface Str extends HasValidation, HasDecoration, HasEscapeable {
      * @return string
      */
     public static function padLeft(string $subject, int $length, string $character = " "): string;
-
-    /**
-     * Get position of a Word in a string
-     * @method position
-     * @static
-     * @param string $subject
-     * @param string $search
-     * @return string
-     */
-    public static function position(string $subject, string $search): string;
 
     /**
      * Remove character of a string
