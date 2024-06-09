@@ -145,4 +145,32 @@ class Str implements StrContract {
     public static function contains(string $subject, string $search): bool {
         return str_contains($subject, $search);
     }
+
+    /**
+     * Check to exist all Words in a string 
+     * @method containsAll
+     * @static
+     * @param string $subject
+     * @param array $search
+     * @return bool
+     */
+    public static function containsAll(string $subject, array $search): bool {
+        $state = false;
+
+        # Iterate on $search as Array of Words
+        foreach ($search as $word) {
+            $status = str_contains($subject, $word);
+
+            # Not exists
+            if (!$status) {
+                $state = false;
+                break;
+            }
+
+            # Is exists
+            $state = $status;
+        }
+
+        return $state;
+    }
 }

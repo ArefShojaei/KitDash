@@ -105,4 +105,14 @@ interface Str {
      * @return bool
      */
     public static function contains(string $subject, string $search): bool;
+
+        /**
+     * Check to exist all Words in a string 
+     * @method containsAll
+     * @static
+     * @param string $subject
+     * @param array $search
+     * @return bool
+     */
+    public static function containsAll(string $subject, array $search): bool;
 }
