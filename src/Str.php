@@ -356,4 +356,16 @@ class Str implements Contract {
     public static function padLeft(string $subject, int $length, string $character = " "): string {
         return str_pad($subject, $length, $character, STR_PAD_LEFT);
     }
+
+    /**
+     * Get position of a Word in a string
+     * @method position
+     * @static
+     * @param string $subject
+     * @param string $search
+     * @return string
+     */
+    public static function position(string $subject, string $search): string {
+        return strpos($subject, $search);
+    }
 }
