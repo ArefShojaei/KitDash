@@ -88,4 +88,15 @@ class Arr implements Contract {
     public static function first(array $array): mixed {
         return current($array);
     }
+
+    /**
+     * Get last Element value of an array
+     * @method last
+     * @static
+     * @param array $array
+     * @return mixed
+     */
+    public static function last(array $array): mixed {
+        return end($array);
+    }
 }
