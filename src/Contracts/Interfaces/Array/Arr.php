@@ -91,7 +91,7 @@ interface Arr {
     public static function has(array $array, string $key): bool;
 
     /**
-     * Check to valid an Array assoc
+     * Check to valid an Array as Assoc type
      * @method isAssoc
      * @static
      * @param array $array
