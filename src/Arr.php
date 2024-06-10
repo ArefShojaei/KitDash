@@ -149,4 +149,16 @@ class Arr implements Contract {
 
         return is_int($key) ? true : false;
     }
+
+    /**
+     * Join Elements together by Separator
+     * @method join
+     * @static
+     * @param array $array
+     * @param string $separator
+     * @return string
+     */
+    public static function join(array $array, string $separator = ", "): string {
+        return implode($separator, $array);
+    }
 }

@@ -107,4 +107,14 @@ interface Arr {
      * @return bool
      */
     public static function isList(array $array): bool;
+
+    /**
+     * Join Elements together by Separator
+     * @method join
+     * @static
+     * @param array $array
+     * @param string $separator
+     * @return string
+     */
+    public static function join(array $array, string $separator = ", "): string;
 }
