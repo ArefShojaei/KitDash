@@ -223,4 +223,13 @@ interface Arr {
      * @return mixed
      */
     public static function nth(array $array, int $index): mixed;
+
+    /**
+     * Get unique Array
+     * @method unique
+     * @static
+     * @param array $array
+     * @return array
+     */
+    public static function unique(array $array): array;
 }

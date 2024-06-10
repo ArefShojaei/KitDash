@@ -313,4 +313,15 @@ class Arr implements Contract {
     public static function nth(array $array, int $index): mixed {
         return $array[$index] ?? null;
     }
+
+    /**
+     * Get unique Array
+     * @method unique
+     * @static
+     * @param array $array
+     * @return array
+     */
+    public static function unique(array $array): array {
+        return array_unique($array);
+    }
 }
