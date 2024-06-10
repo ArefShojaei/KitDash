@@ -31,4 +31,14 @@ interface Arr {
      * @return array
      */
     public static function divide(array $array): array;
+
+    /**
+     * Remove an Element of an array by Key
+     * @method except
+     * @static
+     * @param array $array
+     * @param string $key
+     * @return array
+     */
+    public static function except(array $array, string $key): array;
 }

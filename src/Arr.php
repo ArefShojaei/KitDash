@@ -53,4 +53,16 @@ class Arr implements Contract {
 
         return [$keys, $values];
     }
+
+    /**
+     * Remove an Element of an array by Key
+     * @method except
+     * @static
+     * @param array $array
+     * @param string $key
+     * @return array
+     */
+    public static function except(array $array, string $key): array {
+        return array_filter($array, fn($value) => $array[$key] !== $value);
+    }
 }
