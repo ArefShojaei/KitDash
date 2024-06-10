@@ -65,4 +65,16 @@ class Arr implements Contract {
     public static function except(array $array, string $key): array {
         return array_filter($array, fn($value) => $array[$key] !== $value);
     }
+
+    /**
+     * Check to exist an Element in an array by Key
+     * @method exists
+     * @static
+     * @param array $array
+     * @param string $key
+     * @return bool
+     */
+    public static function exists(array $array, string $key): bool {
+        return array_key_exists($key, $array);
+    }
 }

@@ -41,4 +41,14 @@ interface Arr {
      * @return array
      */
     public static function except(array $array, string $key): array;
+
+    /**
+     * Check to exist an Element in an array by Key
+     * @method exists
+     * @static
+     * @param array $array
+     * @param string $key
+     * @return bool
+     */
+    public static function exists(array $array, string $key): bool;
 }
