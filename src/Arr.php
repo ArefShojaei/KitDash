@@ -220,4 +220,16 @@ class Arr implements Contract {
 
         return $array;
     }
+
+    /**
+     * Split an Array by Size
+     * @method chunk
+     * @static
+     * @param array $array
+     * @param int $size
+     * @return array
+     */
+    public static function chunk(array $array, int $size): array {
+        return array_chunk($array, $size);
+    }
 }

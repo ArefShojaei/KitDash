@@ -154,4 +154,14 @@ interface Arr {
      * @return array
      */
     public static function sort(array $array): array;
+
+    /**
+     * Split an Array by Size
+     * @method chunk
+     * @static
+     * @param array $array
+     * @param int $size
+     * @return array
+     */
+    public static function chunk(array $array, int $size): array;
 }
