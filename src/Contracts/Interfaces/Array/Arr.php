@@ -51,4 +51,13 @@ interface Arr {
      * @return bool
      */
     public static function exists(array $array, string $key): bool;
+
+    /**
+     * Get first Element value of an array
+     * @method first
+     * @static
+     * @param array $array
+     * @return mixed
+     */
+    public static function first(array $array): mixed;
 }

@@ -77,4 +77,15 @@ class Arr implements Contract {
     public static function exists(array $array, string $key): bool {
         return array_key_exists($key, $array);
     }
+
+    /**
+     * Get first Element value of an array
+     * @method first
+     * @static
+     * @param array $array
+     * @return mixed
+     */
+    public static function first(array $array): mixed {
+        return current($array);
+    }
 }
