@@ -117,4 +117,14 @@ interface Arr {
      * @return string
      */
     public static function join(array $array, string $separator = ", "): string;
+
+    /**
+     * Get filtered Elements of an Array by Keys
+     * @method only
+     * @static
+     * @param array $array
+     * @param array $keys
+     * @return array
+     */
+    public static function only(array $array, array $keys): array;
 }

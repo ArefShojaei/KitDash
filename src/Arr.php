@@ -161,4 +161,24 @@ class Arr implements Contract {
     public static function join(array $array, string $separator = ", "): string {
         return implode($separator, $array);
     }
+
+    /**
+     * Get filtered Elements of an Array by Keys
+     * @method only
+     * @static
+     * @param array $array
+     * @param array $keys
+     * @return array
+     */
+    public static function only(array $array, array $keys): array {
+        $result = [];
+        
+        foreach ($keys as $key) {
+            $value = $array[$key];
+
+            $result[$key] = $value;
+        }
+
+        return $result;
+    }
 }
