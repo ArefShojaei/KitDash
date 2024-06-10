@@ -98,4 +98,13 @@ interface Arr {
      * @return bool
      */
     public static function isAssoc(array $array): bool;
+
+    /**
+     * Check to valid an Array as list type
+     * @method isList
+     * @static
+     * @param array $array
+     * @return bool
+     */
+    public static function isList(array $array): bool;
 }

@@ -136,4 +136,17 @@ class Arr implements Contract {
 
         return is_string($key) ? true : false;
     }
+
+    /**
+     * Check to valid an Array as list type
+     * @method isList
+     * @static
+     * @param array $array
+     * @return bool
+     */
+    public static function isList(array $array): bool {
+        $key = current(array_keys($array));
+
+        return is_int($key) ? true : false;
+    }
 }
