@@ -193,4 +193,14 @@ interface Arr {
      * @return array
      */
     public static function difference(array $array, array $with): array;
+
+    /**
+     * Drop Element of an array by Index
+     * @method drop
+     * @static
+     * @param array $array
+     * @param int $index
+     * @return array
+     */
+    public static function drop(array $array, int $index = null): array;
 }
