@@ -39,4 +39,18 @@ class Arr implements Contract {
 
         return $array;
     }
+
+    /**
+     * Divide an Array to two arrays that provides Keys & Values
+     * @method divide
+     * @static
+     * @param array $array
+     * @return array
+     */
+    public static function divide(array $array): array {
+        $keys = array_keys($array);;
+        $values = array_values($array);
+
+        return [$keys, $values];
+    }
 }
