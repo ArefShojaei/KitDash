@@ -286,4 +286,19 @@ class Arr implements Contract {
 
         return $array;
     }
+
+    /**
+     * Fill Elements of an Array by Value
+     * @method fill
+     * @static
+     * @param array $array
+     * @param mixed $value
+     * @return array
+     */
+    public static function fill(array $array, mixed $value): array {
+        $minLength = 0;
+        $arrayLength = count($array);
+        
+        return array_fill($minLength, $arrayLength, $value);
+    }
 }

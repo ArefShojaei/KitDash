@@ -203,4 +203,14 @@ interface Arr {
      * @return array
      */
     public static function drop(array $array, int $index = null): array;
+
+    /**
+     * Fill Elements of an Array by Value
+     * @method fill
+     * @static
+     * @param array $array
+     * @param mixed $value
+     * @return array
+     */
+    public static function fill(array $array, mixed $value): array;
 }
