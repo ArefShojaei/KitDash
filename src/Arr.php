@@ -17,4 +17,10 @@ use Kit\Contracts\Interfaces\Array\Arr as Contract;
  * Arr Util
  * @class
  */
-class Arr implements Contract {}
+class Arr implements Contract {
+    /**
+     * Constructor
+     * @private
+     */
+    private function __construct() {}
+}
