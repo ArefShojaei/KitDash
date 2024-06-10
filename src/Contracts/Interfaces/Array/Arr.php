@@ -164,4 +164,13 @@ interface Arr {
      * @return array
      */
     public static function chunk(array $array, int $size): array;
+
+    /**
+     * Remove falsey Elements of an array
+     * @method compact
+     * @static
+     * @param array $array
+     * @return array
+     */
+    public static function compact(array $array): array;
 }

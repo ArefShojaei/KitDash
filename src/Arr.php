@@ -232,4 +232,15 @@ class Arr implements Contract {
     public static function chunk(array $array, int $size): array {
         return array_chunk($array, $size);
     }
+
+    /**
+     * Remove falsey Elements of an array
+     * @method compact
+     * @static
+     * @param array $array
+     * @return array
+     */
+    public static function compact(array $array): array {
+        return array_filter($array, fn($el) => $el == true);
+    }
 }
