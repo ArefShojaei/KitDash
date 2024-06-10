@@ -190,10 +190,7 @@ class Arr implements Contract {
      * @return mixed  
      */
     public static function random(array $array): mixed {
-        $minLength = 0;
-        $arrayLength = count($array) - 1;
-
-        $randomKey = rand($minLength, $arrayLength);
+        $randomKey = array_rand($array);
 
         return $array[$randomKey];
     }
