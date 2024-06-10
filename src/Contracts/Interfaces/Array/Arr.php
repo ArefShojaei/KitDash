@@ -127,4 +127,13 @@ interface Arr {
      * @return array
      */
     public static function only(array $array, array $keys): array;
+
+    /**
+     * Get Random Element of an array
+     * @method random
+     * @static
+     * @param array $array
+     * @return mixed  
+     */
+    public static function random(array $array): mixed;
 }

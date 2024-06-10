@@ -181,4 +181,20 @@ class Arr implements Contract {
 
         return $result;
     }
+
+    /**
+     * Get Random Element of an array
+     * @method random
+     * @static
+     * @param array $array
+     * @return mixed  
+     */
+    public static function random(array $array): mixed {
+        $minLength = 0;
+        $arrayLength = count($array) - 1;
+
+        $randomKey = rand($minLength, $arrayLength);
+
+        return $array[$randomKey];
+    }
 }
