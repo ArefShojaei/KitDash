@@ -194,4 +194,17 @@ class Arr implements Contract {
 
         return $array[$randomKey];
     }
+
+    /**
+     * Randomize Elements of an array
+     * @method shuffle
+     * @static
+     * @param array $array
+     * @return array
+     */
+    public static function shuffle(array $array): array {
+        shuffle($array);
+        
+        return $array;
+    }
 }
