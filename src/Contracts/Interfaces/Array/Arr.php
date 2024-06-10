@@ -145,4 +145,13 @@ interface Arr {
      * @return array
      */
     public static function shuffle(array $array): array;
+
+    /**
+     * Sort an Array by ASC
+     * @method sort
+     * @static
+     * @param array $array
+     * @return array
+     */
+    public static function sort(array $array): array;
 }

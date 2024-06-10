@@ -207,4 +207,17 @@ class Arr implements Contract {
         
         return $array;
     }
+
+    /**
+     * Sort an Array by ASC
+     * @method sort
+     * @static
+     * @param array $array
+     * @return array
+     */
+    public static function sort(array $array): array {
+        sort($array, SORT_ASC);
+
+        return $array;
+    }
 }
