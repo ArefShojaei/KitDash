@@ -173,4 +173,14 @@ interface Arr {
      * @return array
      */
     public static function compact(array $array): array;
+
+    /**
+     * Merge Elements in an array
+     * @method contact
+     * @static
+     * @param array $array
+     * @param array $arrays
+     * @return array
+     */
+    public static function contact(array $array, array ...$arrays): array;
 }
