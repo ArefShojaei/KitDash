@@ -69,4 +69,14 @@ interface Arr {
      * @return mixed
      */
     public static function last(array $array): mixed;
+
+    /**
+     * Get Element of an array by Key
+     * @method get
+     * @static
+     * @param array $array
+     * @param string $key
+     * @return mixed
+     */
+    public static function get(array $array, string $key): mixed;
 }
