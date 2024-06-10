@@ -123,4 +123,17 @@ class Arr implements Contract {
     public static function has(array $array, string $key): bool {
         return in_array($key, $array);
     }
+
+    /**
+     * Check to valid an Array assoc
+     * @method isAssoc
+     * @static
+     * @param array $array
+     * @return bool
+     */
+    public static function isAssoc(array $array): bool {
+        $key = current(array_keys($array));
+
+        return is_string($key) ? true : false;
+    }
 }

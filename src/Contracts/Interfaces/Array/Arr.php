@@ -89,4 +89,13 @@ interface Arr {
      * @return bool
      */
     public static function has(array $array, string $key): bool;
+
+    /**
+     * Check to valid an Array assoc
+     * @method isAssoc
+     * @static
+     * @param array $array
+     * @return bool
+     */
+    public static function isAssoc(array $array): bool;
 }
