@@ -183,4 +183,14 @@ interface Arr {
      * @return array
      */
     public static function contact(array $array, array ...$arrays): array;
+
+    /**
+     * Get not included Elements of an array in another Array
+     * @method difference
+     * @static
+     * @param array $array
+     * @param array $with
+     * @return array
+     */
+    public static function difference(array $array, array $with): array;
 }

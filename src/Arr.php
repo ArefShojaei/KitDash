@@ -255,4 +255,16 @@ class Arr implements Contract {
     public static function contact(array $array, array ...$arrays): array {
         return array_merge_recursive($array, $arrays);
     }
+
+    /**
+     * Get not included Elements of an array in another Array
+     * @method difference
+     * @static
+     * @param array $array
+     * @param array $with
+     * @return array
+     */
+    public static function difference(array $array, array $with): array {
+        return array_diff($array, $with);
+    }
 }
