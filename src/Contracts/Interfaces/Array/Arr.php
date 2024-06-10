@@ -213,4 +213,14 @@ interface Arr {
      * @return array
      */
     public static function fill(array $array, mixed $value): array;
+
+    /**
+     * Get Element of an array by Index
+     * @method nth
+     * @static
+     * @param array $array
+     * @param int $index
+     * @return mixed
+     */
+    public static function nth(array $array, int $index): mixed;
 }

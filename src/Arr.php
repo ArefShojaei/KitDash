@@ -301,4 +301,16 @@ class Arr implements Contract {
         
         return array_fill($minLength, $arrayLength, $value);
     }
+
+    /**
+     * Get Element of an array by Index
+     * @method nth
+     * @static
+     * @param array $array
+     * @param int $index
+     * @return mixed
+     */
+    public static function nth(array $array, int $index): mixed {
+        return $array[$index] ?? null;
+    }
 }
