@@ -79,4 +79,14 @@ interface Arr {
      * @return mixed
      */
     public static function get(array $array, string $key): mixed;
+
+    /**
+     * Check to exist Element by Key
+     * @method has
+     * @static
+     * @param array $array
+     * @param string $key
+     * @return bool
+     */
+    public static function has(array $array, string $key): bool;
 }

@@ -111,4 +111,16 @@ class Arr implements Contract {
     public static function get(array $array, string $key): mixed {
         return $array[$key] ?? null;
     }
+
+    /**
+     * Check to exist Element by Key
+     * @method has
+     * @static
+     * @param array $array
+     * @param string $key
+     * @return bool
+     */
+    public static function has(array $array, string $key): bool {
+        return in_array($key, $array);
+    }
 }
