@@ -9,7 +9,10 @@ namespace Kit\Contracts\Interfaces\Array;
 /**
  * @package
  */
-use Kit\Contracts\Interfaces\Array\Traits\HasValidation;
+use Kit\Contracts\Interfaces\Array\Traits\{
+    HasConcatenation,
+    HasValidation
+};
 
 
 
@@ -18,7 +21,7 @@ use Kit\Contracts\Interfaces\Array\Traits\HasValidation;
  * Array interface
  * @interface
  */
-interface Arr extends HasValidation {
+interface Arr extends HasValidation, HasConcatenation {
     /**
      * Add an Element to an Array by Key & Value
      * @method add
@@ -76,16 +79,6 @@ interface Arr extends HasValidation {
      * @return mixed
      */
     public static function get(array $array, string $key): mixed;
-
-    /**
-     * Join Elements together by Separator
-     * @method join
-     * @static
-     * @param array $array
-     * @param string $separator
-     * @return string
-     */
-    public static function join(array $array, string $separator = ", "): string;
 
     /**
      * Get filtered Elements of an Array by Keys
@@ -211,13 +204,4 @@ interface Arr extends HasValidation {
      * @return array
      */
     public static function take(array $array, int $length): array;
-
-    /**
-     * Convert array of CSS styles to string
-     * @method toCssStlyes
-     * @static
-     * @param array $array
-     * @return string  
-     */
-    public static function toCssStyles(array $array): string;
 }

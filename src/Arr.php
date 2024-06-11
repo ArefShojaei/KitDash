@@ -10,7 +10,10 @@ namespace Kit;
  * @package
  */
 use Kit\Contracts\Interfaces\Array\Arr as Contract;
-use Kit\Features\Array\HasValidation;
+use Kit\Features\Array\{
+    HasConcatenation,
+    HasValidation
+};
 
 
 
@@ -23,7 +26,7 @@ class Arr implements Contract {
     /**
      * Import Traits
      */
-    use HasValidation;
+    use HasValidation, HasConcatenation;
 
     
     
@@ -107,18 +110,6 @@ class Arr implements Contract {
      */
     public static function get(array $array, string $key): mixed {
         return $array[$key] ?? null;
-    }
-
-    /**
-     * Join Elements together by Separator
-     * @method join
-     * @static
-     * @param array $array
-     * @param string $separator
-     * @return string
-     */
-    public static function join(array $array, string $separator = ", "): string {
-        return implode($separator, $array);
     }
 
     /**
@@ -294,16 +285,5 @@ class Arr implements Contract {
      */
     public static function take(array $array, int $length): array {
         return array_slice($array, 0, $length);
-    }
-
-    /**
-     * Convert array of CSS styles to string
-     * @method toCssStlyes
-     * @static
-     * @param array $array
-     * @return string  
-     */
-    public static function toCssStyles(array $array): string {
-        return implode("; ", $array);
     }
 }
