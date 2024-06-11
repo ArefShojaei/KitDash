@@ -12,6 +12,7 @@ namespace Kit\Contracts\Interfaces\Array;
 use Kit\Contracts\Interfaces\Array\Traits\{
     HasConcatenation,
     HasCRUD,
+    HasRandom,
     HasValidation
 };
 
@@ -22,7 +23,7 @@ use Kit\Contracts\Interfaces\Array\Traits\{
  * Array interface
  * @interface
  */
-interface Arr extends HasValidation, HasConcatenation, HasCRUD {
+interface Arr extends HasValidation, HasConcatenation, HasCRUD, HasRandom {
     /**
      * Divide an Array to two arrays that provides Keys & Values
      * @method divide
@@ -31,24 +32,6 @@ interface Arr extends HasValidation, HasConcatenation, HasCRUD {
      * @return array
      */
     public static function divide(array $array): array;
-
-    /**
-     * Get Random Element of an array
-     * @method random
-     * @static
-     * @param array $array
-     * @return mixed  
-     */
-    public static function random(array $array): mixed;
-
-    /**
-     * Randomize Elements of an array
-     * @method shuffle
-     * @static
-     * @param array $array
-     * @return array
-     */
-    public static function shuffle(array $array): array;
 
     /**
      * Sort an Array by ASC

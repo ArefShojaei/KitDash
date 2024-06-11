@@ -13,6 +13,7 @@ use Kit\Contracts\Interfaces\Array\Arr as Contract;
 use Kit\Features\Array\{
     HasConcatenation,
     HasCRUD,
+    HasRandom,
     HasValidation
 };
 
@@ -27,7 +28,7 @@ class Arr implements Contract {
     /**
      * Import Traits
      */
-    use HasValidation, HasConcatenation, HasCRUD;
+    use HasValidation, HasConcatenation, HasCRUD, HasRandom;
 
     
     
@@ -50,32 +51,6 @@ class Arr implements Contract {
         $values = array_values($array);
 
         return [$keys, $values];
-    }
-
-    /**
-     * Get Random Element of an array
-     * @method random
-     * @static
-     * @param array $array
-     * @return mixed  
-     */
-    public static function random(array $array): mixed {
-        $randomKey = array_rand($array);
-
-        return $array[$randomKey];
-    }
-
-    /**
-     * Randomize Elements of an array
-     * @method shuffle
-     * @static
-     * @param array $array
-     * @return array
-     */
-    public static function shuffle(array $array): array {
-        shuffle($array);
-        
-        return $array;
     }
 
     /**
