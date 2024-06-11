@@ -14,6 +14,7 @@ namespace Kit\Features\String;
 trait HasDecoration {
     /**
      * Remove all white spaces
+     * @see https://laravel.com/docs/11.x/strings#method-str-squish
      * @method squish
      * @static
      * @param string $subject
@@ -29,6 +30,7 @@ trait HasDecoration {
 
     /**
      * Remove both sides of white spaces
+     * @see https://laravel.com/docs/11.x/strings#method-str-trim
      * @method trim
      * @static
      * @param string $subject

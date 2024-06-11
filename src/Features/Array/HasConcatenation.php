@@ -14,6 +14,7 @@ namespace Kit\Features\Array;
 trait HasConcatenation {
     /**
      * Join Elements together by Separator
+     * @see https://laravel.com/docs/11.x/helpers#method-array-join
      * @method join
      * @static
      * @param array $array
@@ -26,6 +27,7 @@ trait HasConcatenation {
 
     /**
      * Convert array of CSS styles to string
+     * @see https://laravel.com/docs/11.x/helpers#method-array-to-css-styles
      * @method toCssStlyes
      * @static
      * @param array $array
@@ -37,6 +39,7 @@ trait HasConcatenation {
 
     /**
      * Merge Elements in an array
+     * @see https://lodash.info/doc/concat
      * @method contact
      * @static
      * @param array $array

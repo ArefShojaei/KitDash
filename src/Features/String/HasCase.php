@@ -14,6 +14,7 @@ namespace Kit\Features\String;
 trait HasCase {
     /**
      * Convert string to Title-case
+     * @see https://laravel.com/docs/11.x/strings#method-title-case
      * @method title
      * @static
      * @param string $subject
@@ -29,6 +30,7 @@ trait HasCase {
 
     /**
      * Convert Camel-case to Snake-case
+     * @see https://laravel.com/docs/11.x/strings#method-snake-case
      * @method slug
      * @static
      * @param string $subject
@@ -45,6 +47,7 @@ trait HasCase {
 
     /**
      * Convert Snake-case to Kebab-case
+     * @see https://laravel.com/docs/11.x/strings#method-kebab-case
      * @method kebab
      * @static
      * @param string $subject
@@ -60,6 +63,7 @@ trait HasCase {
 
     /**
      * Convert Snake-case to Camel-case
+     * @see https://laravel.com/docs/11.x/strings#method-camel-case
      * @method camel
      * @static
      * @param string $subject
@@ -73,6 +77,7 @@ trait HasCase {
 
     /**
      * Convert Pascal-case to Title-case
+     * @see https://laravel.com/docs/11.x/strings#method-str-headline
      * @method headline
      * @static
      * @param string $subject

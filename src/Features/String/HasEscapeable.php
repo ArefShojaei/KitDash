@@ -14,6 +14,7 @@ namespace Kit\Features\String;
 trait HasEscapeable {
     /**
      * Convert special characters
+     * @see https://laravel.com/docs/11.x/strings#method-e
      * @param string $subject
      * @return string
      */

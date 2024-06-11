@@ -14,6 +14,7 @@ namespace Kit\Features\String;
 trait HasCountable {
     /**
      * Get string length
+     * @see https://laravel.com/docs/11.x/strings#method-str-length
      * @method length
      * @static
      * @param string $subject
@@ -25,6 +26,7 @@ trait HasCountable {
 
     /**
      * Get Word count of a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-word-count
      * @method wordCount
      * @static
      * @param string $subject

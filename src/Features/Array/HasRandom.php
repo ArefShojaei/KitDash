@@ -14,6 +14,7 @@ namespace Kit\Features\Array;
 trait HasRandom {
     /**
      * Get Random Element of an array
+     * @see https://laravel.com/docs/11.x/helpers#method-array-random
      * @method random
      * @static
      * @param array $array
@@ -27,6 +28,7 @@ trait HasRandom {
 
     /**
      * Randomize Elements of an array
+     * @see https://laravel.com/docs/11.x/helpers#method-array-shuffle
      * @method shuffle
      * @static
      * @param array $array

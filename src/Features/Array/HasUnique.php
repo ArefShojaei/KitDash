@@ -14,6 +14,7 @@ namespace Kit\Features\Array;
 trait HasUnique {
     /**
      * Get unique Array
+     * @see https://lodash.info/doc/uniq
      * @method unique
      * @static
      * @param array $array

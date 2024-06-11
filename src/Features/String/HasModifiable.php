@@ -14,6 +14,7 @@ namespace Kit\Features\String;
 trait HasModifiable {
     /**
      * Convert string to Upper case
+     * @see https://laravel.com/docs/11.x/strings#method-str-upper
      * @method upper
      * @static
      * @param string $subject
@@ -25,6 +26,7 @@ trait HasModifiable {
 
     /**
      * Convert string to Lower case
+     * @see https://laravel.com/docs/11.x/strings#method-str-lower
      * @method upper
      * @static
      * @param string $subject
@@ -36,6 +38,7 @@ trait HasModifiable {
     
     /**
      * Convert first char of string to Lower-case
+     * @see https://laravel.com/docs/11.x/strings#method-str-lcfirst
      * @method lcfirst
      * @static
      * @param string $subject
@@ -53,6 +56,7 @@ trait HasModifiable {
 
     /**
      * Limit content of a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-limit
      * @method limit
      * @static
      * @param string $subject
@@ -66,6 +70,7 @@ trait HasModifiable {
 
     /**
      * Mask content of a string by Index
+     * @see https://laravel.com/docs/11.x/strings#method-str-mask
      * @method mask
      * @static
      * @param string $subject
@@ -89,6 +94,7 @@ trait HasModifiable {
 
     /**
      * Add padding both sides of a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-padboth
      * @method padBoth
      * @static
      * @param string $subject
@@ -102,6 +108,7 @@ trait HasModifiable {
 
     /**
      * Add padding right side of a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-padright
      * @method padRight
      * @static
      * @param string $subject
@@ -115,6 +122,7 @@ trait HasModifiable {
 
     /**
      * Add padding left side of a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-padleft
      * @method padLeft
      * @static
      * @param string $subject
@@ -128,6 +136,7 @@ trait HasModifiable {
 
     /**
      * Remove character of a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-remove
      * @method remove
      * @static
      * @param string $character
@@ -144,6 +153,7 @@ trait HasModifiable {
 
     /**
      * Repeat string by Count
+     * @see https://laravel.com/docs/11.x/strings#method-str-repeat
      * @method repeat
      * @static
      * @param string $subject
@@ -156,6 +166,7 @@ trait HasModifiable {
 
     /**
      * Replace value in a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-replace
      * @method replace
      * @static
      * @param string|array $search
@@ -169,6 +180,7 @@ trait HasModifiable {
 
     /**
      * Reverse string
+     * @see https://laravel.com/docs/11.x/strings#method-str-reverse
      * @method reverse
      * @static
      * @param string $subject
@@ -180,6 +192,7 @@ trait HasModifiable {
 
     /**
      * Add slug for URL
+     * @see https://laravel.com/docs/11.x/strings#method-str-slug
      * @method slug
      * @static
      * @param string $subject
@@ -194,6 +207,7 @@ trait HasModifiable {
 
     /**
      * Get center content in a string by between sentences
+     * @see https://laravel.com/docs/11.x/strings#method-str-between
      * @method between
      * @static
      * @param string $subject

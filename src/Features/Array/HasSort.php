@@ -14,6 +14,7 @@ namespace Kit\Features\Array;
 trait HasSort {
     /**
      * Sort an Array by ASC
+     * @see https://laravel.com/docs/11.x/helpers#method-array-sort
      * @method sort
      * @static
      * @param array $array

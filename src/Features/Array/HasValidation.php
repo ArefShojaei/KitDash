@@ -14,6 +14,7 @@ namespace Kit\Features\Array;
 trait HasValidation {
     /**
      * Check to exist an Element in an array by Key
+     * @see https://laravel.com/docs/11.x/helpers#method-array-exists
      * @method exists
      * @static
      * @param array $array
@@ -26,6 +27,7 @@ trait HasValidation {
 
     /**
      * Check to exist Element by Key
+     * @see https://laravel.com/docs/11.x/helpers#method-array-has
      * @method has
      * @static
      * @param array $array
@@ -38,6 +40,7 @@ trait HasValidation {
 
     /**
      * Check to valid an Array as Assoc type
+     * @see https://laravel.com/docs/11.x/helpers#method-array-isassoc
      * @method isAssoc
      * @static
      * @param array $array
@@ -51,6 +54,7 @@ trait HasValidation {
 
     /**
      * Check to valid an Array as list type
+     * @see https://laravel.com/docs/11.x/helpers#method-array-islist
      * @method isList
      * @static
      * @param array $array

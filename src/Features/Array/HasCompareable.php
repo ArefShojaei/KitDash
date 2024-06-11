@@ -14,6 +14,7 @@ namespace Kit\Features\Array;
 trait HasCompareable {
     /**
      * Get not included Elements of an array in another Array
+     * @see https://lodash.info/doc/difference
      * @method difference
      * @static
      * @param array $array

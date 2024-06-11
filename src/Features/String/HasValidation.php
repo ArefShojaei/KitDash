@@ -14,6 +14,7 @@ namespace Kit\Features\String;
 trait HasValidation {
     /**
      * Check to valid JSON type
+     * @see https://laravel.com/docs/11.x/strings#method-str-is-json
      * @method isJSON
      * @static
      * @param string $json
@@ -25,6 +26,7 @@ trait HasValidation {
 
     /**
      * Check to valid URL
+     * @see https://laravel.com/docs/11.x/strings#method-str-is-url
      * @method isURL
      * @static
      * @param string $url
@@ -40,6 +42,7 @@ trait HasValidation {
 
     /**
      * Check to empty a string
+     * @see https://laravel.com/docs/11.x/strings#method-fluent-str-is-empty
      * @method isEmpty
      * @static
      * @param string $subject
@@ -51,6 +54,7 @@ trait HasValidation {
 
     /**
      * Check to exist a Word in a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-contains
      * @method contains
      * @static
      * @param string $subject
@@ -62,7 +66,8 @@ trait HasValidation {
     }
 
     /**
-     * Check to exist all Words in a string 
+     * Check to exist all Words in a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-contains-all
      * @method containsAll
      * @static
      * @param string $subject
@@ -91,6 +96,7 @@ trait HasValidation {
 
     /**
      * Check a string that ends with a Word
+     * @see https://laravel.com/docs/11.x/strings#method-ends-with
      * @method endsWith
      * @static
      * @param string $subject
@@ -103,6 +109,7 @@ trait HasValidation {
 
     /**
      * Check a string that starts with a Word
+     * @see https://laravel.com/docs/11.x/strings#method-starts-with
      * @method startsWith
      * @static
      * @param string $subject

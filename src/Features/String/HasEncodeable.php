@@ -14,6 +14,7 @@ namespace Kit\Features\String;
 trait HasEncodeable {
     /**
      * Convert string to Base64 encoding
+     * @see https://laravel.com/docs/11.x/strings#method-fluent-str-to-base64
      * @method toBase64
      * @static
      * @param string $subject

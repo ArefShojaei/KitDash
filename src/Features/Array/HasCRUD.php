@@ -14,6 +14,7 @@ namespace Kit\Features\Array;
 trait HasCRUD {
     /**
      * Add an Element to an Array by Key & Value
+     * @see https://laravel.com/docs/11.x/helpers#method-array-add
      * @method add
      * @static
      * @param array $array
@@ -29,6 +30,7 @@ trait HasCRUD {
 
     /**
      * Get Element of an array by Key
+     * @see https://laravel.com/docs/11.x/helpers#method-array-get
      * @method get
      * @static
      * @param array $array
@@ -41,6 +43,7 @@ trait HasCRUD {
 
     /**
      * Slice an Array by Length
+     * @see https://laravel.com/docs/11.x/helpers#method-array-take
      * @method take
      * @static
      * @param array $array
@@ -53,6 +56,7 @@ trait HasCRUD {
 
     /**
      * Get Element of an array by Index
+     * @see https://lodash.info/doc/nth
      * @method nth
      * @static
      * @param array $array
@@ -65,6 +69,7 @@ trait HasCRUD {
 
     /**
      * Drop Element of an array by Index
+     * @see https://lodash.info/doc/drop
      * @method drop
      * @static
      * @param array $array
@@ -84,6 +89,7 @@ trait HasCRUD {
 
     /**
      * Remove falsey Elements of an array
+     * @see https://lodash.info/doc/compact
      * @method compact
      * @static
      * @param array $array
@@ -95,6 +101,7 @@ trait HasCRUD {
 
     /**
      * Remove an Element of an array by Key
+     * @see https://laravel.com/docs/11.x/helpers#method-array-except
      * @method except
      * @static
      * @param array $array
@@ -107,6 +114,7 @@ trait HasCRUD {
 
     /**
      * Get first Element value of an array
+     * @see https://laravel.com/docs/11.x/helpers#method-array-first
      * @method first
      * @static
      * @param array $array
@@ -118,6 +126,7 @@ trait HasCRUD {
 
     /**
      * Get last Element value of an array
+     * @see https://laravel.com/docs/11.x/helpers#method-array-last
      * @method last
      * @static
      * @param array $array
@@ -129,6 +138,7 @@ trait HasCRUD {
 
     /**
      * Get filtered Elements of an Array by Keys
+     * @see https://laravel.com/docs/11.x/helpers#method-array-only
      * @method only
      * @static
      * @param array $array
@@ -149,6 +159,7 @@ trait HasCRUD {
 
     /**
      * Fill Elements of an Array by Value
+     * @see https://lodash.info/doc/fill
      * @method fill
      * @static
      * @param array $array

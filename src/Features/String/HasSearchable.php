@@ -14,6 +14,7 @@ namespace Kit\Features\String;
 trait HasSearchable {
     /**
      * Get word of string by Index
+     * @see https://laravel.com/docs/11.x/strings#method-char-at
      * @method charAt
      * @static
      * @param string $subject
@@ -26,6 +27,7 @@ trait HasSearchable {
 
     /**
      * Get position of a Word in a string
+     * @see https://laravel.com/docs/11.x/strings#method-str-position
      * @method position
      * @static
      * @param string $subject
@@ -38,6 +40,7 @@ trait HasSearchable {
 
     /**
      * Get string after a Word or Sentence
+     * @see https://laravel.com/docs/11.x/strings#method-str-after
      * @method after
      * @static
      * @param string $subject
@@ -50,6 +53,7 @@ trait HasSearchable {
 
     /**
      * Get string before a Word or Sentence
+     * @see https://laravel.com/docs/11.x/strings#method-str-before
      * @method before
      * @static
      * @param string $subject
@@ -64,6 +68,7 @@ trait HasSearchable {
 
     /**
      * Get Class name in a namespace as string
+     * @see https://laravel.com/docs/11.x/strings#method-class-basename
      * @method classBaseName
      * @static
      * @param string $namespace
@@ -77,6 +82,7 @@ trait HasSearchable {
 
     /**
      * Slice content of a string by Offset & Length
+     * @see https://laravel.com/docs/11.x/strings#method-str-substr
      * @method substr
      * @static
      * @param string $subject

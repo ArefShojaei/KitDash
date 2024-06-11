@@ -14,6 +14,7 @@ namespace Kit\Features\String;
 trait HasExtraction {
     /**
      * Split content of a string by Separator
+     * @see https://lodash.info/doc/split
      * @method split
      * @static
      * @param string $subject
