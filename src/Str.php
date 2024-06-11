@@ -19,7 +19,7 @@ use Kit\Features\String\{
     HasEscapeable,
     HasExtraction,
     HasModifiable,
-    HasSearch
+    HasSearchable
 };
 
 
@@ -34,7 +34,7 @@ class Str implements Contract {
      * Import Traits
      */
     use HasValidation, HasDecoration, HasCase,
-        HasEscapeable, HasSearch, HasEncodeable,
+        HasEscapeable, HasSearchable, HasEncodeable,
         HasModifiable, HasCountable, HasExtraction;
 
 

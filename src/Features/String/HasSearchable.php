@@ -8,10 +8,10 @@ namespace Kit\Features\String;
 
 
 /**
- * Has Search 
+ * Has Searchable
  * @trait
  */
-trait HasSearch {
+trait HasSearchable {
     /**
      * Get word of string by Index
      * @method charAt
