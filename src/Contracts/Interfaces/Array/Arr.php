@@ -70,16 +70,6 @@ interface Arr extends HasValidation, HasConcatenation, HasCRUD {
     public static function chunk(array $array, int $size): array;
 
     /**
-     * Merge Elements in an array
-     * @method contact
-     * @static
-     * @param array $array
-     * @param array $arrays
-     * @return array
-     */
-    public static function contact(array $array, array ...$arrays): array;
-
-    /**
      * Get not included Elements of an array in another Array
      * @method difference
      * @static

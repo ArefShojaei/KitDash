@@ -34,4 +34,16 @@ trait HasConcatenation {
     public static function toCssStyles(array $array): string {
         return implode("; ", $array);
     }
+
+    /**
+     * Merge Elements in an array
+     * @method contact
+     * @static
+     * @param array $array
+     * @param array $arrays
+     * @return array
+     */
+    public static function contact(array $array, array ...$arrays): array {
+        return array_merge_recursive($array, $arrays);
+    }
 }
