@@ -13,6 +13,7 @@ use Kit\Contracts\Interfaces\Array\Traits\{
     HasConcatenation,
     HasCRUD,
     HasRandom,
+    HasSeparator,
     HasSort,
     HasValidation
 };
@@ -24,26 +25,7 @@ use Kit\Contracts\Interfaces\Array\Traits\{
  * Array interface
  * @interface
  */
-interface Arr extends HasValidation, HasConcatenation, HasCRUD, HasRandom, HasSort {
-    /**
-     * Divide an Array to two arrays that provides Keys & Values
-     * @method divide
-     * @static
-     * @param array $array
-     * @return array
-     */
-    public static function divide(array $array): array;
-
-    /**
-     * Split an Array by Size
-     * @method chunk
-     * @static
-     * @param array $array
-     * @param int $size
-     * @return array
-     */
-    public static function chunk(array $array, int $size): array;
-
+interface Arr extends HasValidation, HasConcatenation, HasCRUD, HasRandom, HasSort, HasSeparator {
     /**
      * Get not included Elements of an array in another Array
      * @method difference
