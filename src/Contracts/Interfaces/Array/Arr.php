@@ -10,6 +10,7 @@ namespace Kit\Contracts\Interfaces\Array;
  * @package
  */
 use Kit\Contracts\Interfaces\Array\Traits\{
+    HasCompareable,
     HasConcatenation,
     HasCRUD,
     HasRandom,
@@ -25,17 +26,7 @@ use Kit\Contracts\Interfaces\Array\Traits\{
  * Array interface
  * @interface
  */
-interface Arr extends HasValidation, HasConcatenation, HasCRUD, HasRandom, HasSort, HasSeparator {
-    /**
-     * Get not included Elements of an array in another Array
-     * @method difference
-     * @static
-     * @param array $array
-     * @param array $with
-     * @return array
-     */
-    public static function difference(array $array, array $with): array;
-
+interface Arr extends HasValidation, HasConcatenation, HasCRUD, HasRandom, HasSort, HasSeparator, HasCompareable {
     /**
      * Get unique Array
      * @method unique

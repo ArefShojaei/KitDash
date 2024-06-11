@@ -11,6 +11,7 @@ namespace Kit;
  */
 use Kit\Contracts\Interfaces\Array\Arr as Contract;
 use Kit\Features\Array\{
+    HasCompareable,
     HasConcatenation,
     HasCRUD,
     HasRandom,
@@ -31,7 +32,8 @@ class Arr implements Contract {
      * Import Traits
      */
     use HasValidation, HasConcatenation, HasCRUD, 
-        HasRandom, HasSort, HasSeparator;
+        HasRandom, HasSort, HasSeparator,
+        HasCompareable;
 
     
     
@@ -41,18 +43,6 @@ class Arr implements Contract {
      */
     private function __construct() {}
 
-
-    /**
-     * Get not included Elements of an array in another Array
-     * @method difference
-     * @static
-     * @param array $array
-     * @param array $with
-     * @return array
-     */
-    public static function difference(array $array, array $with): array {
-        return array_diff($array, $with);
-    }
 
     /**
      * Get unique Array
