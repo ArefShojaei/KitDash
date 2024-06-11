@@ -242,4 +242,13 @@ interface Arr {
      * @return array
      */
     public static function take(array $array, int $length): array;
+
+    /**
+     * Convert array of CSS styles to string
+     * @method toCssStlyes
+     * @static
+     * @param array $array
+     * @return string  
+     */
+    public static function toCssStyles(array $array): string;
 }

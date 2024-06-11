@@ -336,4 +336,15 @@ class Arr implements Contract {
     public static function take(array $array, int $length): array {
         return array_slice($array, 0, $length);
     }
+
+    /**
+     * Convert array of CSS styles to string
+     * @method toCssStlyes
+     * @static
+     * @param array $array
+     * @return string  
+     */
+    public static function toCssStyles(array $array): string {
+        return implode("; ", $array);
+    }
 }
