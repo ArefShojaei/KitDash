@@ -324,4 +324,16 @@ class Arr implements Contract {
     public static function unique(array $array): array {
         return array_unique($array);
     }
+
+    /**
+     * Slice an Array by Length
+     * @method take
+     * @static
+     * @param array $array
+     * @param int $length
+     * @return array
+     */
+    public static function take(array $array, int $length): array {
+        return array_slice($array, 0, $length);
+    }
 }
