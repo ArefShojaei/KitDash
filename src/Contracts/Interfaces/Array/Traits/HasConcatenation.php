@@ -33,11 +33,11 @@ interface HasConcatenation {
 
     /**
      * Merge Elements in an array
-     * @method contact
+     * @method conact
      * @static
      * @param array $array
      * @param array $arrays
      * @return array
      */
-    public static function contact(array $array, array ...$arrays): array;
+    public static function conact(array $array, array ...$arrays): array;
 }
