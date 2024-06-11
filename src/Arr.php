@@ -17,6 +17,7 @@ use Kit\Features\Array\{
     HasRandom,
     HasSeparator,
     HasSort,
+    HasUnique,
     HasValidation
 };
 
@@ -33,7 +34,7 @@ class Arr implements Contract {
      */
     use HasValidation, HasConcatenation, HasCRUD, 
         HasRandom, HasSort, HasSeparator,
-        HasCompareable;
+        HasCompareable, HasUnique;
 
     
     
@@ -42,16 +43,4 @@ class Arr implements Contract {
      * @private
      */
     private function __construct() {}
-
-
-    /**
-     * Get unique Array
-     * @method unique
-     * @static
-     * @param array $array
-     * @return array
-     */
-    public static function unique(array $array): array {
-        return array_unique($array);
-    }
 }

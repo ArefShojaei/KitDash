@@ -16,6 +16,7 @@ use Kit\Contracts\Interfaces\Array\Traits\{
     HasRandom,
     HasSeparator,
     HasSort,
+    HasUnique,
     HasValidation
 };
 
@@ -26,13 +27,6 @@ use Kit\Contracts\Interfaces\Array\Traits\{
  * Array interface
  * @interface
  */
-interface Arr extends HasValidation, HasConcatenation, HasCRUD, HasRandom, HasSort, HasSeparator, HasCompareable {
-    /**
-     * Get unique Array
-     * @method unique
-     * @static
-     * @param array $array
-     * @return array
-     */
-    public static function unique(array $array): array;
-}
+interface Arr extends HasValidation, HasConcatenation, HasCRUD, 
+                    HasRandom, HasSort, HasSeparator, 
+                    HasCompareable, HasUnique {}
