@@ -14,6 +14,7 @@ use Kit\Features\Array\{
     HasConcatenation,
     HasCRUD,
     HasRandom,
+    HasSort,
     HasValidation
 };
 
@@ -28,7 +29,7 @@ class Arr implements Contract {
     /**
      * Import Traits
      */
-    use HasValidation, HasConcatenation, HasCRUD, HasRandom;
+    use HasValidation, HasConcatenation, HasCRUD, HasRandom, HasSort;
 
     
     
@@ -51,19 +52,6 @@ class Arr implements Contract {
         $values = array_values($array);
 
         return [$keys, $values];
-    }
-
-    /**
-     * Sort an Array by ASC
-     * @method sort
-     * @static
-     * @param array $array
-     * @return array
-     */
-    public static function sort(array $array): array {
-        sort($array, SORT_ASC);
-
-        return $array;
     }
 
     /**

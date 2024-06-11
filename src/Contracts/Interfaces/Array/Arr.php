@@ -13,6 +13,7 @@ use Kit\Contracts\Interfaces\Array\Traits\{
     HasConcatenation,
     HasCRUD,
     HasRandom,
+    HasSort,
     HasValidation
 };
 
@@ -23,7 +24,7 @@ use Kit\Contracts\Interfaces\Array\Traits\{
  * Array interface
  * @interface
  */
-interface Arr extends HasValidation, HasConcatenation, HasCRUD, HasRandom {
+interface Arr extends HasValidation, HasConcatenation, HasCRUD, HasRandom, HasSort {
     /**
      * Divide an Array to two arrays that provides Keys & Values
      * @method divide
@@ -32,15 +33,6 @@ interface Arr extends HasValidation, HasConcatenation, HasCRUD, HasRandom {
      * @return array
      */
     public static function divide(array $array): array;
-
-    /**
-     * Sort an Array by ASC
-     * @method sort
-     * @static
-     * @param array $array
-     * @return array
-     */
-    public static function sort(array $array): array;
 
     /**
      * Split an Array by Size
