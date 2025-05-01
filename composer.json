@@ -1,16 +1,24 @@
 {
     "name": "arefshojaei/kitdash",
-    "description": "PHP library like Loadash (JS)",
+    "description": "PHP utility library",
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "Loadash",
-        "Kit",
-        "Helper"
+        "loadash",
+        "laravel",
+        "kit",
+        "helper",
+        "util",
+        "library"
     ],
     "autoload": {
         "psr-4": {
             "Kit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\" : "tests/"
         }
     },
     "authors": [
@@ -19,8 +27,10 @@
             "email": "arefshojaei82dev@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php" : "^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10"
     }
 }
