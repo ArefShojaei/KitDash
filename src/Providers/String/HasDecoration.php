@@ -17,7 +17,6 @@ trait HasDecoration {
     }
 
     /**
-     * Remove both sides of white spaces
      * @see https://laravel.com/docs/11.x/strings#method-str-trim
      */
     public static function trim($subject, $chars = " "): string {

@@ -5,7 +5,6 @@ namespace Kit\Providers\Array;
 
 trait HasCRUD {
     /**
-     * Add an Element to an Array by Key & Value
      * @see https://laravel.com/docs/11.x/helpers#method-array-add
      */
     public static function add(array $array, string $key, mixed $value): array {
@@ -15,7 +14,6 @@ trait HasCRUD {
     }
 
     /**
-     * Get Element of an array by Key
      * @see https://laravel.com/docs/11.x/helpers#method-array-get
      */
     public static function get(array $array, string $key): mixed {
@@ -23,7 +21,7 @@ trait HasCRUD {
     }
 
     /**
-     * Slice an Array by Length
+     * Slice an array by length
      * @see https://laravel.com/docs/11.x/helpers#method-array-take
      */
     public static function take(array $array, int $length): array {
@@ -31,7 +29,7 @@ trait HasCRUD {
     }
 
     /**
-     * Get Element of an array by Index
+     * Get element of an array by index
      * @see https://lodash.info/doc/nth
      */
     public static function nth(array $array, int $index): mixed {
@@ -39,7 +37,6 @@ trait HasCRUD {
     }
 
     /**
-     * Drop Element of an array by Index
      * @see https://lodash.info/doc/drop
      */
     public static function drop(array $array, int $index = null): array {
@@ -53,7 +50,7 @@ trait HasCRUD {
     }
 
     /**
-     * Remove falsey Elements of an array
+     * Remove falsey elements of an array
      * @see https://lodash.info/doc/compact
      */
     public static function compact(array $array): array {
@@ -61,7 +58,7 @@ trait HasCRUD {
     }
 
     /**
-     * Remove an Element of an array by Key
+     * Remove an element of an array by key
      * @see https://laravel.com/docs/11.x/helpers#method-array-except
      */
     public static function except(array $array, string $key): array {
@@ -69,7 +66,6 @@ trait HasCRUD {
     }
 
     /**
-     * Get first Element value of an array
      * @see https://laravel.com/docs/11.x/helpers#method-array-first
      */
     public static function first(array $array): mixed {
@@ -77,7 +73,6 @@ trait HasCRUD {
     }
 
     /**
-     * Get last Element value of an array
      * @see https://laravel.com/docs/11.x/helpers#method-array-last
      */
     public static function last(array $array): mixed {
@@ -85,7 +80,7 @@ trait HasCRUD {
     }
 
     /**
-     * Get filtered Elements of an Array by Keys
+     * Get filtered elements of an array by keys
      * @see https://laravel.com/docs/11.x/helpers#method-array-only
      */
     public static function only(array $array, array $keys): array {
@@ -101,7 +96,6 @@ trait HasCRUD {
     }
 
     /**
-     * Fill Elements of an Array by Value
      * @see https://lodash.info/doc/fill
      */
     public static function fill(array $array, mixed $value): array {

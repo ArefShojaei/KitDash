@@ -5,7 +5,6 @@ namespace Kit\Providers\String;
 
 trait HasValidation {
     /**
-     * Check to valid JSON type
      * @see https://laravel.com/docs/11.x/strings#method-str-is-json
      */
     public static function isJSON(string $json): bool {
@@ -13,7 +12,6 @@ trait HasValidation {
     }
 
     /**
-     * Check to valid URL
      * @see https://laravel.com/docs/11.x/strings#method-str-is-url
      */
     public static function isURL(string $url): bool {
@@ -25,7 +23,6 @@ trait HasValidation {
     }
 
     /**
-     * Check to empty a string
      * @see https://laravel.com/docs/11.x/strings#method-fluent-str-is-empty
      */
     public static function isEmpty(string $subject): bool {
@@ -33,7 +30,6 @@ trait HasValidation {
     }
 
     /**
-     * Check to exist a Word in a string
      * @see https://laravel.com/docs/11.x/strings#method-str-contains
      */
     public static function contains(string $subject, string $search): bool {
@@ -41,7 +37,6 @@ trait HasValidation {
     }
 
     /**
-     * Check to exist all Words in a string
      * @see https://laravel.com/docs/11.x/strings#method-str-contains-all
      */
     public static function containsAll(string $subject, array $search): bool {
@@ -65,7 +60,6 @@ trait HasValidation {
     }
 
     /**
-     * Check a string that ends with a Word
      * @see https://laravel.com/docs/11.x/strings#method-ends-with
      */
     public static function endsWith(string $subject, string $search): bool {
@@ -73,7 +67,6 @@ trait HasValidation {
     }
 
     /**
-     * Check a string that starts with a Word
      * @see https://laravel.com/docs/11.x/strings#method-starts-with
      */
     public static function startsWith(string $subject, string $search): bool {

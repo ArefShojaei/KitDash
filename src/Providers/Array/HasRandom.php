@@ -5,7 +5,6 @@ namespace Kit\Providers\Array;
 
 trait HasRandom {
     /**
-     * Get Random Element of an array
      * @see https://laravel.com/docs/11.x/helpers#method-array-random
      */
     public static function random(array $array): mixed {
@@ -15,7 +14,7 @@ trait HasRandom {
     }
 
     /**
-     * Randomize Elements of an array
+     * Randomize elements of an array
      * @see https://laravel.com/docs/11.x/helpers#method-array-shuffle
      */
     public static function shuffle(array $array): array {

@@ -5,7 +5,7 @@ namespace Kit\Providers\Array;
 
 trait HasSeparator {
     /**
-     * Divide an Array to two arrays that provides Keys & Values
+     * Divide an array to two arrays that provides keys & values
      * @see https://laravel.com/docs/11.x/helpers#method-array-divide
      */
     public static function divide(array $array): array {
@@ -16,7 +16,7 @@ trait HasSeparator {
     }
 
     /**
-     * Split an Array by Size
+     * Split an array by size
      * @see https://lodash.info/doc/chunk
      */
     public static function chunk(array $array, int $size): array {

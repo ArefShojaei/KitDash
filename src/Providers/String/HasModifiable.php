@@ -5,7 +5,6 @@ namespace Kit\Providers\String;
 
 trait HasModifiable {
     /**
-     * Convert string to Upper case
      * @see https://laravel.com/docs/11.x/strings#method-str-upper
      */
     public static function upper(string $subject): string {
@@ -13,7 +12,6 @@ trait HasModifiable {
     }
 
     /**
-     * Convert string to Lower case
      * @see https://laravel.com/docs/11.x/strings#method-str-lower
      */
     public static function lower(string $subject): string {
@@ -35,7 +33,6 @@ trait HasModifiable {
     }
 
     /**
-     * Limit content of a string
      * @see https://laravel.com/docs/11.x/strings#method-str-limit
      */
     public static function limit(string $subject, int $length): string {
@@ -98,7 +95,6 @@ trait HasModifiable {
     }
 
     /**
-     * Repeat string by Count
      * @see https://laravel.com/docs/11.x/strings#method-str-repeat
      */
     public static function repeat(string $subject, int $count): string {
@@ -106,7 +102,6 @@ trait HasModifiable {
     }
 
     /**
-     * Replace value in a string
      * @see https://laravel.com/docs/11.x/strings#method-str-replace
      */
     public static function replace(string|array $search, string|array $replace, string $subject): string {
@@ -114,7 +109,6 @@ trait HasModifiable {
     }
 
     /**
-     * Reverse string
      * @see https://laravel.com/docs/11.x/strings#method-str-reverse
      */
     public static function reverse(string $subject): string {
