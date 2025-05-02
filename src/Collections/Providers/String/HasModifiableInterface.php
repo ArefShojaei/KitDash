@@ -1,7 +1,6 @@
 <?php
 
-namespace Kit\Providers\String;
-
+namespace Kit\Collections\Providers\String;
 
 
 interface HasModifiableInterface {

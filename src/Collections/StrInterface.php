@@ -1,8 +1,8 @@
 <?php
 
-namespace Kit\Providers;
+namespace Kit\Collections;
 
-use Kit\Providers\String\{
+use Kit\Collections\Providers\String\{
     HasCountableInterface,
     HasValidationInterface,
     HasDecorationInterface,

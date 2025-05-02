@@ -1,9 +1,9 @@
 <?php
 
-namespace Kit;
+namespace Kit\Collections;
 
-use Kit\Providers\StrInterface;
-use Kit\Providers\String\{
+use Kit\Collections\StrInterface;
+use Kit\Collections\Providers\String\{
     HasValidation,
     HasDecoration,
     HasCase,

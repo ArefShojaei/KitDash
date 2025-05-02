@@ -1,8 +1,8 @@
 <?php
 
-namespace Kit\Providers;
+namespace Kit\Collections;
 
-use Kit\Providers\Array\{
+use Kit\Collections\Providers\Array\{
     HasCompareableInterface,
     HasConcatenationInterface,
     HasCRUDInterface,

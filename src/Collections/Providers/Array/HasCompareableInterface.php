@@ -1,6 +1,6 @@
 <?php
 
-namespace Kit\Providers\Array;
+namespace Kit\Collections\Providers\Array;
 
 
 interface HasCompareableInterface {
