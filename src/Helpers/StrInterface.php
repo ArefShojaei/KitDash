@@ -21,6 +21,4 @@ interface StrInterface extends HasValidationInterface,
     HasEncodeableInterface,
     HasModifiableInterface,
     HasCountableInterface,
-    HasExtractionInterface
-{
-}
+    HasExtractionInterface {}

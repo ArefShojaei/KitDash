@@ -15,7 +15,7 @@ use Kit\Helpers\Providers\Array\{
 };
 
 
-class Arr implements ArrInterface {
+final class Arr implements ArrInterface {
     use HasValidation, HasConcatenation, HasCRUD,
         HasRandom, HasSort, HasSeparator,
         HasCompareable, HasUnique;

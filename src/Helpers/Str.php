@@ -16,7 +16,7 @@ use Kit\Helpers\Providers\String\{
 };
 
 
-class Str implements StrInterface {
+final class Str implements StrInterface {
     use HasValidation, HasDecoration, HasCase,
         HasEscapeable, HasSearchable, HasEncodeable,
         HasModifiable, HasCountable, HasExtraction;
