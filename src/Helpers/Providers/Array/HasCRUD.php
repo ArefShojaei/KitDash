@@ -1,6 +1,6 @@
 <?php
 
-namespace Kit\Collections\Providers\Array;
+namespace Kit\Helpers\Providers\Array;
 
 
 trait HasCRUD {

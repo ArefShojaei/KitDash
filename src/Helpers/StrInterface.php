@@ -1,8 +1,8 @@
 <?php
 
-namespace Kit\Collections;
+namespace Kit\Helpers;
 
-use Kit\Collections\Providers\String\{
+use Kit\Helpers\Providers\String\{
     HasCountableInterface,
     HasValidationInterface,
     HasDecorationInterface,
@@ -21,4 +21,6 @@ interface StrInterface extends HasValidationInterface,
     HasEncodeableInterface,
     HasModifiableInterface,
     HasCountableInterface,
-    HasExtractionInterface {}
+    HasExtractionInterface
+{
+}

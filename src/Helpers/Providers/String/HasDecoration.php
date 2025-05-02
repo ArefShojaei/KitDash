@@ -1,6 +1,6 @@
 <?php
 
-namespace Kit\Collections\Providers\String;
+namespace Kit\Helpers\Providers\String;
 
 
 trait HasDecoration {

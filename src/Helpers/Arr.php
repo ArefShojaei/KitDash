@@ -1,9 +1,9 @@
 <?php
 
-namespace Kit\Collections;
+namespace Kit\Helpers;
 
-use Kit\Collections\ArrInterface;
-use Kit\Collections\Providers\Array\{
+use Kit\Helpers\ArrInterface;
+use Kit\Helpers\Providers\Array\{
     HasCompareable,
     HasConcatenation,
     HasCRUD,
