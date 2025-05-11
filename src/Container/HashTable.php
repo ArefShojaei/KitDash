@@ -2,10 +2,10 @@
 
 namespace Kit\Container;
 
-use Kit\Container\HashTableInterface;
+use Kit\Contracts\Interfaces\HashTable as IHashTable;
 
 
-final class HashTable implements HashTableInterface {
+final class HashTable implements IHashTable {
     private array $data = [];
 
 

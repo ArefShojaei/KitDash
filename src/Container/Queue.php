@@ -2,10 +2,10 @@
 
 namespace Kit\Container;
 
-use Kit\Container\QueueInterface;
+use Kit\Contracts\Interfaces\Queue as IQueue;
 
 
-final class Queue implements QueueInterface {
+final class Queue implements IQueue {
     private array $data = [];
 
 

@@ -2,10 +2,10 @@
 
 namespace Kit\Container;
 
-use Kit\Container\StackInterface;
+use Kit\Contracts\Interfaces\Stack as IStack;
 
 
-final class Stack implements StackInterface {
+final class Stack implements IStack {
     private array $data = [];
 
 
