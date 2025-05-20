@@ -3,8 +3,7 @@
 namespace Kit\Contracts\Interfaces;
 
 
-interface Queue {
+interface Queue extends Describer {
     public function enqueue(mixed $value): void;
     public function dequeue(): mixed;
-    public function toArray(): array;
 }

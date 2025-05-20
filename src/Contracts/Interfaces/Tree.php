@@ -3,7 +3,6 @@
 namespace Kit\Contracts\Interfaces;
 
 
-interface Tree {
+interface Tree extends Describer {
     public function add(mixed $child): void;
-    public function toArray(): array;
 }
