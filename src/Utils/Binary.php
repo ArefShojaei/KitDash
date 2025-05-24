@@ -12,6 +12,7 @@ final class Binary implements IBinary {
 
     private static string $key;
 
+    private function __construct() {}
 
     public static function create(string $key): self {
         self::$key = $key;
