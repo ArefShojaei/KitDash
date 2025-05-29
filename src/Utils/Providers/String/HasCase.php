@@ -34,7 +34,7 @@ trait HasCase {
      */
     public static function kebab(string $subject): string {
         $content = preg_replace_callback("/(?<separator>[A-Z])/", function ($matches) {
-            return "-" . $matches["separator"];
+            return "-" . strtolower($matches["separator"]);
         }, $subject);
 
         return trim($content, "-");
