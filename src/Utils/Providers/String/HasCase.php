@@ -29,7 +29,7 @@ trait HasCase {
     }
 
     /**
-     * Convert Snake-case to Kebab-case
+     * Convert Camel-case to Kebab-case
      * @see https://laravel.com/docs/11.x/strings#method-kebab-case
      */
     public static function kebab(string $subject): string {
@@ -51,7 +51,7 @@ trait HasCase {
     }
 
     /**
-     * Convert Pascal-case to Title-case
+     * Convert String | Camel-case to Title-case
      * @see https://laravel.com/docs/11.x/strings#method-str-headline
      */
     public static function headline(string $subject): string {
