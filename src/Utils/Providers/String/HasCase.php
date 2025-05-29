@@ -22,7 +22,7 @@ trait HasCase {
      */
     public static function snake(string $subject): string {
         $content = preg_replace_callback("/(?<separator>[A-Z])/", function ($matches) {
-            return "_" . $matches["separator"];
+            return "_" . strtolower($matches["separator"]);
         }, $subject);
 
         return trim($content, "-");
