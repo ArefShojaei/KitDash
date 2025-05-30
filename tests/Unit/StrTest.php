@@ -266,4 +266,138 @@ final class StrTest extends TestCase {
         $this->assertEquals(strlen($result), strlen($content));
         $this->assertStringContainsString($symbol, $result);
     }
+
+    /**
+     * @test
+     */
+    public function addLeftPaddingInFirstOfStringContent(): void {
+        $content = "KitDash";
+        $padding = 10;
+        $symbol = "*";
+
+        $result = Str::padLeft($content, $padding, $symbol);
+
+        $this->assertIsString($result);
+        $this->assertNotEquals(strlen($result), strlen($content));
+        $this->assertStringContainsString($symbol, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function addRightPaddingInLastOfStringContent(): void {
+        $content = "KitDash";
+        $padding = 10;
+        $symbol = "*";
+
+        $result = Str::padRight($content, $padding, $symbol);
+
+        $this->assertIsString($result);
+        $this->assertNotEquals(strlen($result), strlen($content));
+        $this->assertStringContainsString($symbol, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function addPaddingToLeftAndRightInAStringContent(): void {
+        $content = "KitDash";
+        $padding = 10;
+        $symbol = "*";
+
+        $result = Str::padBoth($content, $padding, $symbol);
+
+        $this->assertIsString($result);
+        $this->assertNotEquals(strlen($result), strlen($content));
+        $this->assertStringContainsString($symbol, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function removeValueOfStringContent(): void {
+        $content = "KitDash library";
+        $target = "library";
+
+        $result = Str::remove($target, $content);
+    
+        $this->assertIsString($result);
+        $this->assertNotEquals(strlen($result), strlen($content));
+        $this->assertStringNotContainsString($target, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function repeatValueInAStringContent(): void {
+        $content = "A";
+
+        $result = Str::repeat($content, 3);
+
+        $this->assertIsString($content);
+        $this->assertNotEquals($content, $result);
+        $this->assertNotSame($result, $content);
+    }
+
+    /**
+     * @test
+     */
+    public function replaceValueInAStringContent(): void {
+        $content = "Hello from PHP!";
+        $search = "PHP";
+        $replace = "KitDash";
+
+
+        $result = Str::replace($search, $replace, $content);
+
+        $this->assertIsString($content);
+        $this->assertNotEquals($result, $content);
+        $this->assertStringContainsString($replace, $result);
+        $this->assertStringNotContainsString($search, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function reverseStringContent(): void {
+        $content = "KitDash";
+
+        $result = Str::reverse($content);
+
+        $this->assertIsString($result);
+        $this->assertNotEquals($result, $content);
+        $this->assertEquals(strlen($result), strlen($content));
+    }
+
+    /**
+     * @test
+     */
+    public function addSlugToAStringContent(): void {
+        $content = "This is my new version of KitDash library";
+        $seperator = "-";
+
+        $result = Str::slug($content, $seperator);
+
+        $this->assertIsString($content);
+        $this->assertNotEquals($result, $content);
+        $this->assertStringContainsString($seperator, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function takeContentBetweenSelectedValuesFromStartAndEndOfStringContent(): void {
+        $whitesapce = " ";
+        $start = "This";
+        $end = "name";
+        $content = "{$start} is my {$end}";
+
+        $result = Str::between($content, $start, $end);
+
+        $this->assertIsString($result);
+        $this->assertNotEquals($result, $content);
+        $this->assertStringContainsString($whitesapce, $result);
+        $this->assertStringNotContainsString($start, $result);
+        $this->assertStringNotContainsString($end, $result);
+    }
 }
