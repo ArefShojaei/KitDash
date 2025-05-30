@@ -23,7 +23,7 @@ final class StrTest extends TestCase {
     /**
      * @test
      */
-    public function isImplementedBinaryInterface(): void {
+    public function isImplementedStrInterface(): void {
         $interfaces = class_implements(Str::class);
 
         $this->assertIsArray($interfaces);
@@ -33,7 +33,7 @@ final class StrTest extends TestCase {
     /**
      * @test
      */
-    public function getLengthOfStringWithValue(): void {
+    public function getLengthOfString(): void {
         $content = "KitDash";
         
         $length = Str::length($content);
@@ -55,7 +55,7 @@ final class StrTest extends TestCase {
     /**
      * @test
      */
-    public function getCountOfWordWithValue(): void {
+    public function getCountOfWordsWithValue(): void {
         $count = Str::wordCount(subject:"PHP Utilty Library");
         
         $this->assertIsInt($count);
@@ -64,7 +64,7 @@ final class StrTest extends TestCase {
     /**
      * @test
      */
-    public function getCountOfWordWithEmptyValueThatReturnsEmptyValue(): void {
+    public function getCountOfWordsWithEmptyValueThatReturnsZero(): void {
         $count = Str::wordCount(subject:"");
         
         $this->assertIsInt($count);
@@ -145,7 +145,7 @@ final class StrTest extends TestCase {
     /**
      * @test
      */
-    public function removeAllSpecificCharacterInAStringBySymbol(): void {
+    public function removeAllSpecificCharactersInAStringBySymbol(): void {
         $symbol = "*";
         $content = "{$symbol}KitDash{$symbol}";
 
