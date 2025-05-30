@@ -26,6 +26,7 @@ final class StrTest extends TestCase {
     public function isImplementedBinaryInterface(): void {
         $interfaces = class_implements(Str::class);
 
+        $this->assertIsArray($interfaces);
         $this->assertArrayHasKey(IStr::class, $interfaces);
     }
 
@@ -45,22 +46,17 @@ final class StrTest extends TestCase {
      * @test
      */
     public function getLengthOfStringWithEmptyValueThatReturnsZero(): void {
-        $content = "";
-        $zero = 0;
-        
-        $length = Str::length($content);
+        $length = Str::length(subject:"");
 
         $this->assertIsInt($length);
-        $this->assertEquals($zero, $length);
+        $this->assertEquals(expected:0, actual:$length);
     }
 
     /**
      * @test
      */
     public function getCountOfWordWithValue(): void {
-        $content = "PHP Utilty Library";
-
-        $count = Str::wordCount($content);
+        $count = Str::wordCount(subject:"PHP Utilty Library");
         
         $this->assertIsInt($count);
     }
@@ -69,13 +65,10 @@ final class StrTest extends TestCase {
      * @test
      */
     public function getCountOfWordWithEmptyValueThatReturnsEmptyValue(): void {
-        $content = "";
-        $zero = 0;
-
-        $count = Str::wordCount($content);
+        $count = Str::wordCount(subject:"");
         
         $this->assertIsInt($count);
-        $this->assertEquals($zero, $count);
+        $this->assertEquals(expected:0, actual:$count);
     }
 
     /**
@@ -83,56 +76,58 @@ final class StrTest extends TestCase {
      */
     public function convertStringContentToTitleCaseStringContent(): void {
         $content = "a nice title uses the correct case";
-
+        
         $result = Str::title($content);
 
         $this->assertIsString($result);
+        $this->assertNotSame($result, $content);
     }
 
     /**
      * @test
      */
     public function convertCamelCaseStringContentToSnakeCaseStringContent(): void {
-        $content = "fooBar";
+        $seperator = "_";
 
-        $result = Str::snake($content);
+        $result = Str::snake(subject:"fooBar");
 
         $this->assertIsString($result);
-        $this->assertStringContainsString("_", $result);
+        $this->assertStringContainsString($seperator, $result);
     }
 
     /**
      * @test
      */
     public function convertCamelCaseStringContentToKebabCaseStringContent(): void {
-        $content = "fooBar";
+        $seperator = "-";
 
-        $result = Str::kebab($content);
+        $result = Str::kebab(subject:"fooBar");
 
         $this->assertIsString($result);
-        $this->assertStringContainsString("-", $result);
+        $this->assertStringContainsString($seperator, $result);
     }
 
     /**
      * @test
      */
     public function convertSnakeCaseStringContentToCamelCaseStringContent(): void {
-        $content = "foo_bar";
+        $seperator = "_";
 
-        $result = Str::camel($content);
+        $result = Str::camel(subject:"foo_bar");
 
         $this->assertIsString($result);
+        $this->assertStringNotContainsString($seperator, $result);
     }
 
     /**
      * @test
      */
     public function convertSnakeCaseStringContentToTitleCaseStringContent(): void {
-        $content = "EmailNotificationSent";
-
-        $result = Str::headline($content);
+        $result = Str::headline(subject:"EmailNotificationSent");
+        $whitesapce = " ";
 
         $this->assertIsString($result);
+        $this->assertStringContainsString($whitesapce, $result);
     }
 
     /**
@@ -165,12 +160,10 @@ final class StrTest extends TestCase {
      * @test
      */
     public function convertStringContentToBase64EncodedValue(): void {
-        $content = "Hello from KitDash library!";
+        $result = Str::toBase64(subject:"Hello from KitDash library!");
 
-        $result = Str::toBase64($content);
-
-        $this->assertIsString($result);
         $this->assertNotEmpty($result);
+        $this->assertIsString($result);
     }
 
     /**
@@ -178,12 +171,13 @@ final class StrTest extends TestCase {
      */
     public function prepareSqlQueryInAStringContent() {
         $query = "SELECT * FROM users WHERE id = 1 AND <script>alert(true)</script>";
+        $keywords = ["&", ";"];
 
         $result = Str::e($query);
 
         $this->assertIsString($result);
-        $this->assertStringContainsString("&", $result);
-        $this->assertStringContainsString(";", $result);
+        $this->assertStringContainsString(current($keywords), $result);
+        $this->assertStringContainsString(end($keywords), $result);
     }
 
     /**
@@ -191,8 +185,9 @@ final class StrTest extends TestCase {
      */
     public function extractStringContentBySymbol(): void {
         $content = "KitDash library";
+        $whitesapce = " ";
 
-        $extractedCotnent = Str::split($content, " ");
+        $extractedCotnent = Str::split($content, $whitesapce);
 
         $this->assertIsArray($extractedCotnent);
         $this->assertCount(count($extractedCotnent), $extractedCotnent);
@@ -240,15 +235,16 @@ final class StrTest extends TestCase {
     /**
      * @test
      */
-    public function applyTextLimitorForStringContent(): void {
+    public function applyTextLimiterForStringContent(): void {
         $content = "The quick brown fox jumps over the lazy dog";
         $acceptedLimitCount = 20;
+        $LimiterValue = "...";
 
         $result = Str::limit($content, $acceptedLimitCount);
 
         $this->assertIsString($result);
         $this->assertNotEquals(strlen($result), strlen($content));
-        $this->assertStringContainsString("...", $result);
+        $this->assertStringContainsString($LimiterValue, $result);
     }
 
     /**
