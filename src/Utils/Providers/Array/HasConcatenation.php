@@ -21,7 +21,7 @@ trait HasConcatenation {
     /**
      * @see https://lodash.info/doc/concat
      */
-    public static function conact(array $array, array ...$arrays): array {
+    public static function concat(array $array, array ...$arrays): array {
         return array_merge_recursive($array, $arrays);
     }
 }
