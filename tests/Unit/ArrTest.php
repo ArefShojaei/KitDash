@@ -348,4 +348,96 @@ final class ArrTest extends TestCase {
         $this->assertNotEquals(count($uniqueArr), count($input));
         $this->assertEquals(expected:[2,1], actual:$uniqueArr);
     }
+
+    /**
+     * @test
+     */
+    public function validateToExistKeyInAnArray(): void {
+        $user = ["name" => "Aref"];
+        $key = "name";
+
+        $isKeyExists = Arr::exists($user, $key);
+
+        $this->assertIsBool($isKeyExists);
+        $this->assertTrue($isKeyExists);
+    }
+
+    /**
+     * @test
+     */
+    public function validateToNotExistKeyInAnArray(): void {
+        $user = ["name" => "Aref"];
+        $key = "age";
+
+        $isKeyExists = Arr::exists($user, $key);
+
+        $this->assertIsBool($isKeyExists);
+        $this->assertFalse($isKeyExists);
+    }
+
+    /**
+     * @test
+     */
+    public function validateToExistValueInAnArray(): void {
+        $roles = ["admin", "writer", "manager"];
+        $role = "writer";
+
+        $isValueExists = Arr::has($roles, $role);
+
+        $this->assertIsBool($isValueExists);
+        $this->assertTrue($isValueExists);
+    }
+
+    /**
+     * @test
+     */
+    public function validateToNotExistValueInAnArray(): void {
+        $roles = ["admin", "manager"];
+        $role = "writer";
+
+        $isValueExists = Arr::has($roles, $role);
+
+        $this->assertIsBool($isValueExists);
+        $this->assertFalse($isValueExists);
+    }
+
+    /**
+     * @test
+     */
+    public function validateToBeAnAssocArray(): void {
+        $isAssocArray = Arr::isAssoc(array:['product' => ['name' => 'Desk', 'price' => 100]]);
+
+        $this->assertIsBool($isAssocArray);
+        $this->assertTrue($isAssocArray);
+    }
+
+    /**
+     * @test
+     */
+    public function validateToNotBeAnAssocArray(): void {
+        $isAssocArray = Arr::isAssoc(array:[1, 2, 3]);
+
+        $this->assertIsBool($isAssocArray);
+        $this->assertFalse($isAssocArray);
+    }
+
+    /**
+     * @test
+     */
+    public function validateToBeAList(): void {
+        $isList = Arr::isList(array:[1, 2, 3]);
+
+        $this->assertIsBool($isList);
+        $this->assertTrue($isList);
+    }
+
+    /**
+     * @test
+     */
+    public function validateToNotBeAList(): void {
+        $isList = Arr::isList(array:['product' => ['name' => 'Desk', 'price' => 100]]);
+
+        $this->assertIsBool($isList);
+        $this->assertFalse($isList);
+    }
 }
