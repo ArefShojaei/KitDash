@@ -14,7 +14,7 @@ final class Stack implements IStack {
     }
 
     public function pop(): mixed {
-        if ($this->isEmpty()) return null;
+        if (!$this->isEmpty()) return null;
 
         return array_pop($this->data);
     }
