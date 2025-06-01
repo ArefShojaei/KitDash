@@ -16,7 +16,7 @@ final class HashTable implements IHashTable {
     }
 
     public function get(string $key): mixed {
-        if ($this->isEmpty()) return null;
+        if (!$this->isEmpty()) return null;
 
         $index = $this->hash($key);
         
@@ -24,7 +24,7 @@ final class HashTable implements IHashTable {
     }
 
     public function has(string $key): bool {
-        if ($this->isEmpty()) return false;
+        if (!$this->isEmpty()) return false;
 
         $index = $this->hash($key);
 
