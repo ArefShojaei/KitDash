@@ -3,20 +3,21 @@
 namespace Kit\Container;
 
 use Kit\Contracts\Interfaces\Tree as ITree;
+use Kit\Entity\Tree as Node;
 
 
 final class Tree implements ITree {
-    private mixed $value;
+    private Node $value;
     
     private array $children = [];
 
 
     public function __construct(mixed $value) {
-        $this->value = $value;
+        $this->value = new Node($value);
     }
 
     public function add(mixed $child): void {
-        $this->children[] = $child;
+        $this->children[] = new Node($child);
     }
 
     public function toArray(): array {
