@@ -9,7 +9,7 @@ final class Graph implements IGraphEntity {
     private array $meta = [];
 
 
-    public function __construct(public mixed $value) {}
+    public function __construct(public string $value) {}
 
     public function addMeta(mixed $value): void {
         $this->meta[] = $value;

@@ -2,9 +2,11 @@
 
 namespace Kit\Contracts\Interfaces;
 
+use Kit\Entity\Graph as Node;
+
 
 interface Graph extends Describer {
-    public function addNode($node): void;
-    public function addEdge($start, $end): void;
-    public function getNode($node): mixed;
+    public function addNode(string $value): Node;
+    public function addEdge(Node $start, Node $end): void;
+    public function getNode(string $value): ?Node;
 }
