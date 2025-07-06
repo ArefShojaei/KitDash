@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Utils\Archive;
+namespace Kit\Utils;
 
 use ZipArchive;
 use Kit\Contracts\Interfaces\Archive as IArchive;
