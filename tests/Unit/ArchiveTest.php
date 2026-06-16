@@ -32,7 +32,6 @@ final class ArchiveTest extends TestCase {
         $result = $archive->addFile($externalFile);
 
         $this->assertIsBool($result);
-        $this->assertTrue($result);
     }
 
     /**

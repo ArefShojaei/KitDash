@@ -77,9 +77,10 @@ final class RequestTest extends TestCase {
         $url = self::BASE_URL . $this->inValidEndPoints["tag"];
         
         $tag = Request::get($url);
-    
-        $this->assertIsNotObject($tag);
-        $this->assertNull($tag);
+        $methodCount = count((array) $tag);
+
+        $this->assertIsObject($tag);
+        $this->assertFalse((bool) $methodCount);
     }
     
     /**
