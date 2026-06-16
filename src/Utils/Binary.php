@@ -2,7 +2,7 @@
 
 namespace Kit\Utils;
 
-use Kit\Contracts\Interfaces\Binary as IBinary;
+use Kit\Contracts\Interfaces\Bin as IBinary;
 
 
 final class Binary implements IBinary {
