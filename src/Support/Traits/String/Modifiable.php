@@ -148,7 +148,7 @@ trait Modifiable
      * Add slug for URL
      * @see https://laravel.com/docs/11.x/strings#method-str-slug
      */
-    public static function slug($subject, $separator = "-"): string
+    public static function slug(string $subject, string $separator = "-"): string
     {
         $parsedString = explode(" ", $subject);
 

@@ -24,7 +24,7 @@ trait Decoratable
     /**
      * @see https://laravel.com/docs/11.x/strings#method-str-trim
      */
-    public static function trim($subject, $chars = " "): string
+    public static function trim(string $subject, string $chars = " "): string
     {
         return trim($subject, $chars);
     }
