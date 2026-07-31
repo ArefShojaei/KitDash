@@ -12,15 +12,13 @@ final class StackTest extends TestCase
     /**
      * @test
      */
-    public function createInstance(): IStack
+    public function createInstance(): void
     {
         $instance = new Stack();
 
         $this->assertIsObject($instance);
         $this->assertInstanceOf(Stack::class, $instance);
         $this->assertInstanceOf(IStack::class, $instance);
-
-        return $instance;
     }
 
     /**
@@ -36,10 +34,11 @@ final class StackTest extends TestCase
 
     /**
      * @test
-     * @depends createInstance
      */
-    public function newStackShouldBeEmpty(Stack $stack): void
+    public function newStackShouldBeEmpty(): void
     {
+        $stack = new Stack();
+
         $this->assertTrue($stack->isEmpty());
         $this->assertSame([], $stack->toArray());
         $this->assertCount(0, $stack->toArray());
