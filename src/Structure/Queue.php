@@ -16,7 +16,7 @@ final class Queue implements IQueue
     public function dequeue(): mixed
     {
         if ($this->isEmpty()) {
-            return null;
+            return [];
         }
 
         return array_shift($this->data);

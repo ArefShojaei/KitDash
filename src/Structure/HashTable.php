@@ -18,7 +18,7 @@ final class HashTable implements IHashTable
     public function get(string $key): mixed
     {
         if ($this->isEmpty()) {
-            return null;
+            return [];
         }
 
         $index = $this->hash($key);
