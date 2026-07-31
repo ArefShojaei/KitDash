@@ -2,81 +2,141 @@
 
 namespace Tests\Unit;
 
-use Kit\Container\Queue;
-use Kit\Contracts\Interfaces\Queue as IQueue;
 use PHPUnit\Framework\TestCase;
 
+use Kit\Structure\Queue;
+use Kit\Structure\Interfaces\Queue as IQueue;
 
-final class QueueTest extends TestCase {
+final class QueueTest extends TestCase
+{
     /**
      * @test
      */
-    public function createInstance(): IQueue {
-        $instance = new Queue;
-        
-        $this->assertIsObject($instance);
-        $this->assertInstanceOf(IQueue::class, $instance);
+    public function createInstance(): void
+    {
+        $instance = new Queue();
 
-        return $instance;
+        $this->assertIsObject($instance);
+        $this->assertInstanceOf(Queue::class, $instance);
+        $this->assertInstanceOf(IQueue::class, $instance);
     }
 
     /**
      * @test
-     * @depends createInstance
      */
-    public function isImplementedQueueInterface(IQueue $queue): void {
-        $interfaces = class_implements($queue::class);
+    public function isImplementedQueueInterface(): void
+    {
+        $interfaces = class_implements(Queue::class);
 
+        $this->assertIsArray($interfaces);
         $this->assertArrayHasKey(IQueue::class, $interfaces);
     }
 
     /**
      * @test
-     * @depends createInstance
      */
-    public function enqueueState(IQueue $queue): IQueue {
-        $value = "Hello";
-        
-        $queue->enqueue($value);
+    public function newQueueShouldBeEmpty(): void
+    {
+        $queue = new Queue();
 
-        $store = $queue->toArray();
-
-        $this->assertIsArray($store);
-        $this->assertIsString($value);
-        $this->assertContains($value, $store);
-        $this->assertCount(expectedCount:1, haystack:$store);
-
-        return $queue;
+        $this->assertTrue($queue->isEmpty());
+        $this->assertSame([], $queue->toArray());
     }
 
     /**
      * @test
-     * @depends enqueueState
      */
-    public function dequeueState(IQueue $queue): IQueue {
-        $expectedValue = "Hello";
-        
-        $deletedValue = $queue->dequeue();
-        $store = $queue->toArray();
+    public function enqueueAddsValueToQueue(): void
+    {
+        $queue = new Queue();
 
-        $this->assertIsArray($store);
-        $this->assertCount(expectedCount:0, haystack:$store);
-        $this->assertIsString($deletedValue);
-        $this->assertNotContains($deletedValue, $store);
-        $this->assertEquals($expectedValue, $deletedValue);
+        $queue->enqueue("Hello");
+        $queue->enqueue("World");
 
-        return $queue;
+        $this->assertFalse($queue->isEmpty());
+        $this->assertCount(2, $queue->toArray());
+        $this->assertSame(["Hello", "World"], $queue->toArray());
     }
 
     /**
      * @test
-     * @depends dequeueState
      */
-    public function getStateToAnArray(IQueue $queue): void {
-        $store = $queue->toArray();
+    public function dequeueRemovesAndReturnsFirstValue(): void
+    {
+        $queue = new Queue();
 
-        $this->assertIsArray($store);
-        $this->assertIsIterable($store);
-        $this->assertCount(expectedCount:0, haystack:$store);
+        $queue->enqueue("A");
+        $queue->enqueue("B");
+        $queue->enqueue("C");
+
+        $this->assertSame("A", $queue->dequeue());
+        $this->assertSame("B", $queue->dequeue());
+        $this->assertSame(["C"], $queue->toArray());
+    }
+
+    /**
+     * @test
+     */
+    public function dequeueOnEmptyQueueReturnsEmptyArray(): void
+    {
+        $queue = new Queue();
+
+        $this->assertIsArray($queue->dequeue());
+        $this->assertTrue($queue->isEmpty());
+    }
+
+    /**
+     * @test
+     */
+    public function enqueueAndDequeueShouldFollowFIFO(): void
+    {
+        $queue = new Queue();
+
+        $queue->enqueue(1);
+        $queue->enqueue(2);
+        $queue->enqueue(3);
+
+        $this->assertSame(1, $queue->dequeue());
+        $this->assertSame(2, $queue->dequeue());
+        $this->assertSame(3, $queue->dequeue());
+        $this->assertTrue($queue->isEmpty());
+    }
+
+    /**
+     * @test
+     */
+    public function toArrayReturnsCurrentState(): void
+    {
+        $queue = new Queue();
+
+        $queue->enqueue("first");
+        $queue->enqueue("second");
+
+        $this->assertSame(["first", "second"], $queue->toArray());
+
+        $queue->dequeue();
+
+        $this->assertSame(["second"], $queue->toArray());
+    }
+
+    /**
+     * @test
+     */
+    public function canEnqueueDifferentTypes(): void
+    {
+        $queue = new Queue();
+
+        $queue->enqueue(123);
+        $queue->enqueue("string");
+        $queue->enqueue(["a", "b"]);
+        $queue->enqueue(true);
+        $queue->enqueue(null);
+
+        $this->assertCount(5, $queue->toArray());
+        $this->assertSame(123, $queue->dequeue());
+        $this->assertSame("string", $queue->dequeue());
+        $this->assertSame(["a", "b"], $queue->dequeue());
+        $this->assertTrue($queue->dequeue());
+        $this->assertNull($queue->dequeue());
     }
 }
