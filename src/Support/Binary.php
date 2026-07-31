@@ -1,6 +1,6 @@
 <?php
 
-namespace Kit\Utils;
+namespace Kit\Support;
 
 use Kit\Support\Interfaces\Bin as IBinary;
 

@@ -15,7 +15,7 @@ final class Queue implements IQueue
 
     public function dequeue(): mixed
     {
-        if (!$this->isEmpty()) {
+        if ($this->isEmpty()) {
             return null;
         }
 
@@ -24,7 +24,7 @@ final class Queue implements IQueue
 
     public function isEmpty(): bool
     {
-        return count($this->data) ? true : false;
+        return count($this->data) === 0;
     }
 
     public function toArray(): array

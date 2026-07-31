@@ -17,7 +17,7 @@ final class HashTable implements IHashTable
 
     public function get(string $key): mixed
     {
-        if (!$this->isEmpty()) {
+        if ($this->isEmpty()) {
             return null;
         }
 
@@ -38,14 +38,14 @@ final class HashTable implements IHashTable
             array_key_exists($key, $this->data[$index]);
     }
 
+    public function isEmpty(): bool
+    {
+        return count($this->data) === 0;
+    }
+
     public function toArray(): array
     {
         return $this->data;
-    }
-
-    public function isEmpty(): bool
-    {
-        return count($this->data) ? true : false;
     }
 
     private function hash(string $key): string
