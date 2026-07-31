@@ -10,6 +10,8 @@ final class Binary implements IBinary
 
     private const SEPERATOR_VALUE = "0";
 
+    private const HASH_RANGE = 128;
+
     private function __construct(private string $key) {}
 
     public static function create(string $key): self
@@ -19,7 +21,11 @@ final class Binary implements IBinary
 
     private function generateHashKey(string $key): int
     {
-        return abs(crc32($key)) % 128;
+        $hash = crc32($key);
+        $positive = abs($hash);
+        $offset = $positive % self::HASH_RANGE;
+
+        return $offset;
     }
 
     public function encode(string $content): string
