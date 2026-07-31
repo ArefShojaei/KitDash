@@ -2,7 +2,7 @@
 
 namespace Kit\Structure\Interfaces;
 
-use Kit\Contracts\Interfaces\Arrayable;
+use Kit\Support\Interfaces\Array\Arrayable;
 
 interface Queue extends Validatable, Arrayable
 {
