@@ -2,19 +2,23 @@
 
 namespace Tests\Unit;
 
-use Kit\Utils\Str;
-use Kit\Contracts\Interfaces\Str as IStr;
+use Error;
+
 use PHPUnit\Framework\TestCase;
 
+use Kit\Support\Str;
+use Kit\Support\Interfaces\Str as IStr;
 
-final class StrTest extends TestCase {
+final class StrTest extends TestCase
+{
     /**
      * @test
      */
-    public function throwAnErrorToGetNewInstance(): void {
+    public function throwAnErrorToGetNewInstance(): void
+    {
         try {
-            new Str;
-        } catch (\Error $error) {
+            new Str();
+        } catch (Error $error) {
             $this->assertIsObject($error);
             $this->assertIsString($error->getMessage());
         }
@@ -23,377 +27,445 @@ final class StrTest extends TestCase {
     /**
      * @test
      */
-    public function isImplementedStrInterface(): void {
+    public function isImplementedStrInterface(): void
+    {
         $interfaces = class_implements(Str::class);
 
         $this->assertIsArray($interfaces);
         $this->assertArrayHasKey(IStr::class, $interfaces);
     }
 
+    // ========== Countable ==========
+
     /**
      * @test
      */
-    public function getLengthOfString(): void {
+    public function getLengthOfString(): void
+    {
         $content = "KitDash";
-        
+
         $length = Str::length($content);
 
         $this->assertIsInt($length);
-        $this->assertEquals(strlen($content), $length);
+        $this->assertSame(7, $length);
     }
 
     /**
      * @test
      */
-    public function getLengthOfStringWithEmptyValueThatReturnsZero(): void {
-        $length = Str::length(subject:"");
-
-        $this->assertIsInt($length);
-        $this->assertEquals(expected:0, actual:$length);
+    public function getLengthOfEmptyStringThatReturnsZero(): void
+    {
+        $this->assertSame(0, Str::length(""));
     }
 
     /**
      * @test
      */
-    public function getCountOfWordsWithValue(): void {
-        $count = Str::wordCount(subject:"PHP Utilty Library");
-        
-        $this->assertIsInt($count);
+    public function getCountOfWords(): void
+    {
+        $this->assertSame(3, Str::wordCount("PHP Utility Library"));
+        $this->assertSame(0, Str::wordCount(""));
     }
-    
-    /**
-     * @test
-     */
-    public function getCountOfWordsWithEmptyValueThatReturnsZero(): void {
-        $count = Str::wordCount(subject:"");
-        
-        $this->assertIsInt($count);
-        $this->assertEquals(expected:0, actual:$count);
-    }
+
+    // ========== Caseable ==========
 
     /**
      * @test
      */
-    public function convertStringContentToTitleCaseStringContent(): void {
-        $content = "a nice title uses the correct case";
-        
-        $result = Str::title($content);
+    public function convertStringToTitleCase(): void
+    {
+        $result = Str::title("a nice title uses the correct case");
 
         $this->assertIsString($result);
-        $this->assertNotSame($result, $content);
+        $this->assertStringStartsWith("A", $result);
     }
 
     /**
      * @test
      */
-    public function convertCamelCaseStringContentToSnakeCaseStringContent(): void {
-        $seperator = "_";
-
-        $result = Str::snake(subject:"fooBar");
+    public function convertCamelCaseToSnakeCase(): void
+    {
+        $result = Str::snake("fooBar");
 
         $this->assertIsString($result);
-        $this->assertStringContainsString($seperator, $result);
+        $this->assertStringContainsString("_", $result);
     }
 
     /**
      * @test
      */
-    public function convertCamelCaseStringContentToKebabCaseStringContent(): void {
-        $seperator = "-";
-
-        $result = Str::kebab(subject:"fooBar");
+    public function convertCamelCaseToKebabCase(): void
+    {
+        $result = Str::kebab("fooBar");
 
         $this->assertIsString($result);
-        $this->assertStringContainsString($seperator, $result);
+        $this->assertStringContainsString("-", $result);
     }
 
     /**
      * @test
      */
-    public function convertSnakeCaseStringContentToCamelCaseStringContent(): void {
-        $seperator = "_";
-
-        $result = Str::camel(subject:"foo_bar");
+    public function convertSnakeCaseToCamelCase(): void
+    {
+        $result = Str::camel("foo_bar");
 
         $this->assertIsString($result);
-        $this->assertStringNotContainsString($seperator, $result);
+        $this->assertStringNotContainsString("_", $result);
+        $this->assertSame("fooBar", $result);
     }
 
     /**
      * @test
      */
-    public function convertSnakeCaseStringContentToTitleCaseStringContent(): void {
-        $result = Str::headline(subject:"EmailNotificationSent");
-        $whitesapce = " ";
+    public function convertToHeadline(): void
+    {
+        $result = Str::headline("EmailNotificationSent");
 
         $this->assertIsString($result);
-        $this->assertStringContainsString($whitesapce, $result);
+        $this->assertStringContainsString(" ", $result);
     }
+
+    // ========== Decoratable ==========
 
     /**
      * @test
      */
-    public function removeAllWhiteSpacesInAStringContent(): void {
+    public function removeExtraWhiteSpaces(): void
+    {
         $content = "    KitDash    library    ";
 
         $result = Str::squish($content);
 
         $this->assertIsString($result);
-        $this->assertNotEquals(strlen($result), strlen($content));
+        $this->assertSame("KitDash library", $result);
     }
 
     /**
      * @test
      */
-    public function removeAllSpecificCharactersInAStringBySymbol(): void {
-        $symbol = "*";
-        $content = "{$symbol}KitDash{$symbol}";
+    public function trimSpecificCharacters(): void
+    {
+        $content = "*KitDash*";
 
-        $result = Str::trim($content, $symbol);
+        $result = Str::trim($content, "*");
+
+        $this->assertSame("KitDash", $result);
+    }
+
+    // ========== Encodable ==========
+
+    /**
+     * @test
+     */
+    public function convertStringToBase64(): void
+    {
+        $result = Str::toBase64("Hello from KitDash!");
 
         $this->assertIsString($result);
-        $this->assertNotEquals(strlen($result), strlen($content));
-        $this->assertStringNotContainsString($symbol, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function convertStringContentToBase64EncodedValue(): void {
-        $result = Str::toBase64(subject:"Hello from KitDash library!");
-
         $this->assertNotEmpty($result);
-        $this->assertIsString($result);
+        $this->assertSame(base64_encode("Hello from KitDash!"), $result);
     }
+
+    // ========== Escapable ==========
 
     /**
      * @test
      */
-    public function prepareSqlQueryInAStringContent() {
-        $query = "SELECT * FROM users WHERE id = 1 AND <script>alert(true)</script>";
-        $keywords = ["&", ";"];
+    public function escapeHtmlSpecialCharacters(): void
+    {
+        $query =
+            "SELECT * FROM users WHERE id = 1 AND <script>alert(true)</script>";
 
         $result = Str::e($query);
 
         $this->assertIsString($result);
-        $this->assertStringContainsString(current($keywords), $result);
-        $this->assertStringContainsString(end($keywords), $result);
+        $this->assertStringContainsString("&lt;", $result);
+        $this->assertStringContainsString("&gt;", $result);
+    }
+
+    // ========== Extraction ==========
+
+    /**
+     * @test
+     */
+    public function splitStringBySeparator(): void
+    {
+        $result = Str::split("KitDash library", " ");
+
+        $this->assertIsArray($result);
+        $this->assertCount(2, $result);
+        $this->assertSame(["KitDash", "library"], $result);
+    }
+
+    // ========== Modifiable ==========
+
+    /**
+     * @test
+     */
+    public function convertStringToUpperCase(): void
+    {
+        $this->assertSame(
+            "PHP PROGRAMMING LANGUAGE",
+            Str::upper("PHP programming language"),
+        );
     }
 
     /**
      * @test
      */
-    public function extractStringContentBySymbol(): void {
-        $content = "KitDash library";
-        $whitesapce = " ";
-
-        $extractedCotnent = Str::split($content, $whitesapce);
-
-        $this->assertIsArray($extractedCotnent);
-        $this->assertCount(count($extractedCotnent), $extractedCotnent);
-        $this->assertIsIterable($extractedCotnent);
+    public function convertStringToLowerCase(): void
+    {
+        $this->assertSame(
+            "php programming language",
+            Str::lower("PHP programming language"),
+        );
     }
 
     /**
      * @test
      */
-    public function convertStringToUpperCase(): void {
-        $content = "PHP programming language";
-
-        $result = Str::upper($content);
-
-        $this->assertIsString($result);
-        $this->assertNotEquals($result, $content);
+    public function convertFirstCharToLowerCase(): void
+    {
+        $this->assertSame("foo Bar", Str::lcfirst("Foo Bar"));
     }
 
     /**
      * @test
      */
-    public function convertStringToLowerCase(): void {
-        $content = "PHP programming language";
-
-        $result = Str::lower($content);
-
-        $this->assertIsString($result);
-        $this->assertNotEquals($result, $content);
-    }
-    
-    /**
-     * @test
-     */
-    public function convertFirstCharOfStringContentToLowerCase(): void {
-        $content = "Foo Bar";
-        $firstChar = $content[0];
-
-        $result = Str::lcfirst($content);
-
-        $this->assertIsString($result);
-        $this->assertNotEquals($result, $content);
-        $this->assertStringNotContainsString($firstChar, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function applyTextLimiterForStringContent(): void {
+    public function limitStringLength(): void
+    {
         $content = "The quick brown fox jumps over the lazy dog";
-        $acceptedLimitCount = 20;
-        $LimiterValue = "...";
 
-        $result = Str::limit($content, $acceptedLimitCount);
+        $result = Str::limit($content, 20);
 
         $this->assertIsString($result);
-        $this->assertNotEquals(strlen($result), strlen($content));
-        $this->assertStringContainsString($LimiterValue, $result);
+        $this->assertStringEndsWith("...", $result);
+        $this->assertSame(23, strlen($result)); // 20 + "..."
     }
 
     /**
      * @test
      */
-    public function maskStringCotnentBySymbolAndIndex(): void {
-        $content = "taylor@example.com";
-        $symbol = "*";
-        $index = 6;
-
-        $result = Str::mask($content, $symbol, $index);
-    
-        $this->assertIsString($result);
-        $this->assertNotEquals($result, $content);
-        $this->assertEquals(strlen($result), strlen($content));
-        $this->assertStringContainsString($symbol, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function addLeftPaddingInFirstOfStringContent(): void {
-        $content = "KitDash";
-        $padding = 10;
-        $symbol = "*";
-
-        $result = Str::padLeft($content, $padding, $symbol);
+    public function maskStringByIndex(): void
+    {
+        $result = Str::mask("taylor@example.com", "*", 6);
 
         $this->assertIsString($result);
-        $this->assertNotEquals(strlen($result), strlen($content));
-        $this->assertStringContainsString($symbol, $result);
+        $this->assertSame(strlen("taylor@example.com"), strlen($result));
+        $this->assertStringContainsString("*", $result);
+        $this->assertStringStartsWith("taylor", $result);
     }
 
     /**
      * @test
      */
-    public function addRightPaddingInLastOfStringContent(): void {
-        $content = "KitDash";
-        $padding = 10;
-        $symbol = "*";
+    public function padLeft(): void
+    {
+        $result = Str::padLeft("KitDash", 10, "*");
 
-        $result = Str::padRight($content, $padding, $symbol);
+        $this->assertSame("***KitDash", $result);
+    }
+
+    /**
+     * @test
+     */
+    public function padRight(): void
+    {
+        $result = Str::padRight("KitDash", 10, "*");
+
+        $this->assertSame("KitDash***", $result);
+    }
+
+    /**
+     * @test
+     */
+    public function padBoth(): void
+    {
+        $result = Str::padBoth("Kit", 7, "*");
+
+        $this->assertSame("**Kit**", $result);
+    }
+
+    /**
+     * @test
+     */
+    public function removeValueFromString(): void
+    {
+        $result = Str::remove("library", "KitDash library");
 
         $this->assertIsString($result);
-        $this->assertNotEquals(strlen($result), strlen($content));
-        $this->assertStringContainsString($symbol, $result);
+        $this->assertStringNotContainsString("library", $result);
     }
 
     /**
      * @test
      */
-    public function addPaddingToLeftAndRightInAStringContent(): void {
-        $content = "KitDash";
-        $padding = 10;
-        $symbol = "*";
+    public function repeatString(): void
+    {
+        $this->assertSame("AAA", Str::repeat("A", 3));
+    }
 
-        $result = Str::padBoth($content, $padding, $symbol);
+    /**
+     * @test
+     */
+    public function replaceValueInString(): void
+    {
+        $result = Str::replace("PHP", "KitDash", "Hello from PHP!");
+
+        $this->assertSame("Hello from KitDash!", $result);
+    }
+
+    /**
+     * @test
+     */
+    public function reverseString(): void
+    {
+        $this->assertSame("hsaDtiK", Str::reverse("KitDash"));
+    }
+
+    /**
+     * @test
+     */
+    public function createSlug(): void
+    {
+        $result = Str::slug("This is my new version of KitDash library");
 
         $this->assertIsString($result);
-        $this->assertNotEquals(strlen($result), strlen($content));
-        $this->assertStringContainsString($symbol, $result);
+        $this->assertStringContainsString("-", $result);
+        $this->assertSame("This-is-my-new-version-of-KitDash-library", $result);
     }
 
     /**
      * @test
      */
-    public function removeValueOfStringContent(): void {
-        $content = "KitDash library";
-        $target = "library";
-
-        $result = Str::remove($target, $content);
-    
-        $this->assertIsString($result);
-        $this->assertNotEquals(strlen($result), strlen($content));
-        $this->assertStringNotContainsString($target, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function repeatValueInAStringContent(): void {
-        $content = "A";
-
-        $result = Str::repeat($content, 3);
-
-        $this->assertIsString($content);
-        $this->assertNotEquals($content, $result);
-        $this->assertNotSame($result, $content);
-    }
-
-    /**
-     * @test
-     */
-    public function replaceValueInAStringContent(): void {
-        $content = "Hello from PHP!";
-        $search = "PHP";
-        $replace = "KitDash";
-
-
-        $result = Str::replace($search, $replace, $content);
-
-        $this->assertIsString($content);
-        $this->assertNotEquals($result, $content);
-        $this->assertStringContainsString($replace, $result);
-        $this->assertStringNotContainsString($search, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function reverseStringContent(): void {
-        $content = "KitDash";
-
-        $result = Str::reverse($content);
+    public function getContentBetweenTwoValues(): void
+    {
+        $result = Str::between("This is my name", "This", "name");
 
         $this->assertIsString($result);
-        $this->assertNotEquals($result, $content);
-        $this->assertEquals(strlen($result), strlen($content));
+        $this->assertStringNotContainsString("This", $result);
+        $this->assertStringNotContainsString("name", $result);
+    }
+
+    // ========== Searchable ==========
+
+    /**
+     * @test
+     */
+    public function getCharAtIndex(): void
+    {
+        $this->assertSame("K", Str::charAt("KitDash", 0));
+        $this->assertSame("D", Str::charAt("KitDash", 3));
     }
 
     /**
      * @test
      */
-    public function addSlugToAStringContent(): void {
-        $content = "This is my new version of KitDash library";
-        $seperator = "-";
-
-        $result = Str::slug($content, $seperator);
-
-        $this->assertIsString($content);
-        $this->assertNotEquals($result, $content);
-        $this->assertStringContainsString($seperator, $result);
+    public function getPositionOfSubstring(): void
+    {
+        $this->assertSame(0, Str::position("KitDash", "Kit"));
+        $this->assertSame(3, Str::position("KitDash", "Dash"));
     }
 
     /**
      * @test
      */
-    public function takeContentBetweenSelectedValuesFromStartAndEndOfStringContent(): void {
-        $whitesapce = " ";
-        $start = "This";
-        $end = "name";
-        $content = "{$start} is my {$end}";
-
-        $result = Str::between($content, $start, $end);
+    public function getStringAfterSubstring(): void
+    {
+        $result = Str::after("Hello World", "Hello ");
 
         $this->assertIsString($result);
-        $this->assertNotEquals($result, $content);
-        $this->assertStringContainsString($whitesapce, $result);
-        $this->assertStringNotContainsString($start, $result);
-        $this->assertStringNotContainsString($end, $result);
+        $this->assertStringContainsString("World", $result);
+    }
+
+    /**
+     * @test
+     */
+    public function getStringBeforeSubstring(): void
+    {
+        $this->assertSame("Hello", Str::before("Hello World", " World"));
+    }
+
+    /**
+     * @test
+     */
+    public function getClassBaseNameFromNamespace(): void
+    {
+        $this->assertSame("Str", Str::classBaseName("Kit\\Support\\Str"));
+    }
+
+    /**
+     * @test
+     */
+    public function getSubstring(): void
+    {
+        $this->assertSame("Dash", Str::substr("KitDash", 3, 4));
+    }
+
+    // ========== Validatable ==========
+
+    /**
+     * @test
+     */
+    public function checkIfStringIsJson(): void
+    {
+        $this->assertTrue(Str::isJSON('{"name":"Aref"}'));
+        $this->assertFalse(Str::isJSON("not a json"));
+    }
+
+    /**
+     * @test
+     */
+    public function checkIfStringIsUrl(): void
+    {
+        $this->assertTrue(Str::isURL("https://example.com"));
+        $this->assertFalse(Str::isURL("not-a-url"));
+    }
+
+    /**
+     * @test
+     */
+    public function checkIfStringIsEmpty(): void
+    {
+        $this->assertTrue(Str::isEmpty(""));
+        $this->assertFalse(Str::isEmpty("KitDash"));
+    }
+
+    /**
+     * @test
+     */
+    public function checkIfStringContainsSubstring(): void
+    {
+        $this->assertTrue(Str::contains("Hello World", "World"));
+        $this->assertFalse(Str::contains("Hello World", "PHP"));
+    }
+
+    /**
+     * @test
+     */
+    public function checkIfStringContainsAllSubstrings(): void
+    {
+        $this->assertTrue(
+            Str::containsAll("Hello World from PHP", ["Hello", "World"]),
+        );
+        $this->assertFalse(Str::containsAll("Hello World", ["Hello", "PHP"]));
+    }
+
+    /**
+     * @test
+     */
+    public function checkIfStringEndsWith(): void
+    {
+        $this->assertTrue(Str::endsWith("Hello World", "World"));
+        $this->assertFalse(Str::endsWith("Hello World", "Hello"));
+    }
+
+    /**
+     * @test
+     */
+    public function checkIfStringStartsWith(): void
+    {
+        $this->assertTrue(Str::startsWith("Hello World", "Hello"));
+        $this->assertFalse(Str::startsWith("Hello World", "World"));
     }
 }
