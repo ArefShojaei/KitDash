@@ -2,99 +2,161 @@
 
 namespace Tests\Unit;
 
-use Kit\Container\HashTable;
-use Kit\Contracts\Interfaces\HashTable as IHashTable;
 use PHPUnit\Framework\TestCase;
 
+use Kit\Structure\HashTable;
+use Kit\Structure\Interfaces\HashTable as IHashTable;
 
-final class HashTableTest extends TestCase {
+final class HashTableTest extends TestCase
+{
     /**
      * @test
      */
-    public function createInstance(): IHashTable {
-        $instance = new HashTable;
-        
-        $this->assertIsObject($instance);
-        $this->assertInstanceOf(IHashTable::class, $instance);
+    public function createInstance(): void
+    {
+        $instance = new HashTable();
 
-        return $instance;
+        $this->assertIsObject($instance);
+        $this->assertInstanceOf(HashTable::class, $instance);
+        $this->assertInstanceOf(IHashTable::class, $instance);
     }
 
     /**
      * @test
-     * @depends createInstance
      */
-    public function isImplementedQueueInterface(IHashTable $table): void {
-        $interfaces = class_implements($table::class);
+    public function isImplementedHashTableInterface(): void
+    {
+        $interfaces = class_implements(HashTable::class);
 
+        $this->assertIsArray($interfaces);
         $this->assertArrayHasKey(IHashTable::class, $interfaces);
     }
 
     /**
      * @test
-     * @depends createInstance
      */
-    public function setState(IHashTable $table): void {
-        $key = "name";
-        $value = "Aref";
+    public function newHashTableShouldBeEmpty(): void
+    {
+        $table = new HashTable();
 
-        $table->set($key, $value);
-
-        $store = $table->toArray();
-
-        $this->assertIsArray($store);
-        $this->assertCount(expectedCount:1, haystack:$store);
+        $this->assertTrue($table->isEmpty());
+        $this->assertSame([], $table->toArray());
     }
 
     /**
      * @test
-     * @depends createInstance
      */
-    public function getState(IHashTable $table): void {
-        $key = "name";
-        $expectedValue = "Aref";
+    public function setAndGetValue(): void
+    {
+        $table = new HashTable();
 
-        $value = $table->get($key);
+        $table->set("name", "Aref");
+        $table->set("age", 25);
 
-        $this->assertIsString($value);
-        $this->assertEquals($expectedValue, $value);
+        $this->assertSame("Aref", $table->get("name"));
+        $this->assertSame(25, $table->get("age"));
+        $this->assertFalse($table->isEmpty());
     }
 
     /**
      * @test
-     * @depends createInstance
      */
-    public function validateToExistValueByKey(IHashTable $table): void {
-        $key = "name";
+    public function getNonExistentKeyReturnsNull(): void
+    {
+        $table = new HashTable();
 
-        $isKeyExists = $table->has($key);
+        $table->set("name", "Aref");
 
-        $this->assertIsBool($isKeyExists);
-        $this->assertTrue($isKeyExists);
+        $this->assertNull($table->get("email"));
     }
 
     /**
      * @test
-     * @depends createInstance
      */
-    public function validateToNotExistValueByKey(IHashTable $table): void {
-        $key = "age";
+    public function hasReturnsTrueForExistingKey(): void
+    {
+        $table = new HashTable();
 
-        $isKeyExists = $table->has($key);
+        $table->set("name", "Aref");
 
-        $this->assertIsBool($isKeyExists);
-        $this->assertFalse($isKeyExists);
+        $this->assertTrue($table->has("name"));
+        $this->assertFalse($table->has("age"));
     }
 
     /**
      * @test
-     * @depends createInstance
      */
-    public function getStateToAnArray(IHashTable $table): void {
-        $store = $table->toArray();
+    public function hasOnEmptyTableReturnsFalse(): void
+    {
+        $table = new HashTable();
 
-        $this->assertIsArray($store);
-        $this->assertIsIterable($store);
-        $this->assertCount(expectedCount:1, haystack:$store);
+        $this->assertFalse($table->has("any-key"));
+    }
+
+    /**
+     * @test
+     */
+    public function setOverwritesExistingKey(): void
+    {
+        $table = new HashTable();
+
+        $table->set("name", "Aref");
+        $table->set("name", "Ali");
+
+        $this->assertSame("Ali", $table->get("name"));
+    }
+
+    /**
+     * @test
+     */
+    public function canStoreDifferentTypes(): void
+    {
+        $table = new HashTable();
+
+        $table->set("int", 100);
+        $table->set("string", "hello");
+        $table->set("array", [1, 2, 3]);
+        $table->set("bool", true);
+        $table->set("null", null);
+
+        $this->assertSame(100, $table->get("int"));
+        $this->assertSame("hello", $table->get("string"));
+        $this->assertSame([1, 2, 3], $table->get("array"));
+        $this->assertTrue($table->get("bool"));
+        $this->assertNull($table->get("null"));
+        $this->assertTrue($table->has("null")); // کلید وجود دارد حتی اگر مقدار null باشد
+    }
+
+    /**
+     * @test
+     */
+    public function toArrayReturnsInternalStructure(): void
+    {
+        $table = new HashTable();
+
+        $table->set("name", "Aref");
+        $table->set("city", "Tehran");
+
+        $result = $table->toArray();
+
+        $this->assertIsArray($result);
+        $this->assertNotEmpty($result);
+    }
+
+    /**
+     * @test
+     */
+    public function keysWithSameHashStillWorkCorrectly(): void
+    {
+        $table = new HashTable();
+
+        // چون hash = strlen % 10، کلیدهای هم‌طول ممکن است در یک bucket قرار بگیرند
+        $table->set("abc", 1); // length 3
+        $table->set("xyz", 2); // length 3
+
+        $this->assertSame(1, $table->get("abc"));
+        $this->assertSame(2, $table->get("xyz"));
+        $this->assertTrue($table->has("abc"));
+        $this->assertTrue($table->has("xyz"));
     }
 }
