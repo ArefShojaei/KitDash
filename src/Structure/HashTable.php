@@ -28,7 +28,7 @@ final class HashTable implements IHashTable
 
     public function has(string $key): bool
     {
-        if (!$this->isEmpty()) {
+        if ($this->isEmpty()) {
             return false;
         }
 
