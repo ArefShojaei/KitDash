@@ -6,7 +6,7 @@ interface Searchable
 {
     public static function charAt(string $subject, int $index): string;
 
-    public static function position(string $subject, string $search): string;
+    public static function position(string $subject, string $search): int;
 
     public static function after(string $subject, string $search): string;
 

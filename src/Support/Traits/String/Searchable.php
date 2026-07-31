@@ -17,7 +17,7 @@ trait Searchable
      * Get position of a word in a string
      * @see https://laravel.com/docs/11.x/strings#method-str-position
      */
-    public static function position(string $subject, string $search): string
+    public static function position(string $subject, string $search): int
     {
         return strpos($subject, $search);
     }

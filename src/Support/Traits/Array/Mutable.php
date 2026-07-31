@@ -48,7 +48,8 @@ trait Mutable
         $selfElementIndex = 1;
 
         if (!is_null($index)) {
-            return array_splice($array, $index, $selfElementIndex);
+            array_splice($array, $index, $selfElementIndex);
+            return $array;
         }
 
         array_shift($array);
