@@ -8,22 +8,18 @@ final class Binary implements IBinary
 {
     private const SEPERATOR_COUNT = 8;
 
-    private const SEPERATOR_VALUE = 0;
+    private const SEPERATOR_VALUE = "0";
 
-    private static string $key;
-
-    private function __construct() {}
+    private function __construct(private string $key) {}
 
     public static function create(string $key): self
     {
-        self::$key = $key;
-
-        return new self();
+        return new self($key);
     }
 
-    private function generateHashKey(string $key): string
+    private function generateHashKey(string $key): int
     {
-        return strlen(md5($key));
+        return abs(crc32($key)) % 128;
     }
 
     public function encode(string $content): string
@@ -32,12 +28,12 @@ final class Binary implements IBinary
 
         $binary_value = "";
 
+        $hashKey = $this->generateHashKey($this->key);
+
         foreach ($chars as $char) {
             $unique_code = ord($char);
 
-            $binary_number = decbin(
-                $unique_code + $this->generateHashKey(static::$key),
-            );
+            $binary_number = decbin($unique_code + $hashKey);
 
             $binary_value .= str_pad(
                 $binary_number,
@@ -56,10 +52,10 @@ final class Binary implements IBinary
 
         $content = "";
 
+        $hashKey = $this->generateHashKey($this->key);
+
         foreach ($binary_chars as $binary_char) {
-            $content .= chr(
-                bindec($binary_char) - $this->generateHashKey(static::$key),
-            );
+            $content .= chr(bindec($binary_char) - $hashKey);
         }
 
         return $content;
