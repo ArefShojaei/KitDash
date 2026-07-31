@@ -1,33 +1,33 @@
 # 🎯 KitDash
 
-[![Latest Version](https://img.shields.io/packagist/v/arefshojaei/kitdash.svg)](https://packagist.org/packages/arefshojaei/kitdash)
-[![PHP Version](https://img.shields.io/badge/php-%5E8.0-blue.svg)](https://php.net)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-
-**KitDash** is a lightweight and flexible PHP utility library designed to speed up development by providing reusable, well-tested helper functions and components. Inspired by [Laravel](https://laravel.com) and [Lodash](https://lodash.com).
+**KitDash** is a lightweight and flexible PHP utility library designed to speed up development by providing reusable, well-tested helper functions and components.  
+Inspired by [Laravel](https://laravel.com) and [Lodash](https://lodash.com).
 
 ---
 
 ## ✨ Features
 
-- 🚀 **Comprehensive Utilities** - Array, String and File utilities
-- 🏗️ **Data Structures** - Stack, HashTable, Tree, Graph
-- 📦 **Clean Architecture** - Interfaces and Traits for modular code
-- 🧪 **Well Tested** - All functions covered with PHPUnit
-- ⚡ **High Performance** - Zero external dependencies
-- 🔒 **PHP 8.0+** - Modern PHP features
-- 📚 **Easy to Use** - Simple and consistent API
+- 🚀 **Support Utilities** – Array & String helpers + Binary encoder
+- 🏗️ **Data Structures** – Stack, Queue, HashTable, Tree, Graph
+- 📁 **File System** – File, Directory, Archive (Zip) utilities
+- 🌐 **Network** – URL parser & HTTP Request client
+- 📦 **JSON** – Simple encode / decode with validation
+- 🧪 **Well Tested** – PHPUnit coverage
+- ⚡ **Zero Dependencies** – Pure PHP 8.0+
+- 📚 **Clean Architecture** – Interfaces + Traits
 
 ---
 
 ## 📥 Installation
 
 ### With Composer (Recommended)
+
 ```bash
 composer require arefshojaei/kitdash
 ```
 
 ### Manual Installation
+
 ```bash
 git clone https://github.com/ArefShojaei/KitDash.git
 cd KitDash
@@ -41,125 +41,60 @@ composer install
 ### Array Utilities
 
 ```php
-use Kit\Utils\Arr;
+use Kit\Support\Arr;
 
-// Add an element
-$array = Arr::add(['a' => 1], 'b', 2);
-// ['a' => 1, 'b' => 2]
-
-// Get an element
-$value = Arr::get(['a' => 1, 'b' => 2], 'a'); // 1
-$default = Arr::get(['a' => 1], 'c', 'default'); // 'default'
-
-// Take first N elements
-$first = Arr::take([1, 2, 3, 4, 5], 3); // [1, 2, 3]
-
-// Get element by index
-$nth = Arr::nth([10, 20, 30], 1); // 20
-
-// Drop elements
-$dropped = Arr::drop([1, 2, 3], 1); // [2, 3]
-
-// Remove falsey elements
-$compact = Arr::compact([0, '', false, 'hello', null]); // ['hello']
-
-// Remove specific element
-$except = Arr::except(['a' => 1, 'b' => 2], 'a'); // ['b' => 2]
-
-// First and last element
-$first = Arr::first([1, 2, 3]); // 1
-$last = Arr::last([1, 2, 3]); // 3
-
-// Filter by keys
-$only = Arr::only(['a' => 1, 'b' => 2, 'c' => 3], ['a', 'c']); // ['a' => 1, 'c' => 3]
-
-// Fill array
-$filled = Arr::fill([1, 2, 3], 'x'); // ['x', 'x', 'x']
-
-// Sort array
-$sorted = Arr::sort([3, 1, 4, 1, 5]); // [1, 1, 3, 4, 5]
-
-// Remove duplicates
-$unique = Arr::unique([1, 2, 2, 3, 3, 3]); // [1, 2, 3]
-
-// Concatenate arrays
-$concatenated = Arr::concat([1, 2], [3, 4]); // [1, 2, 3, 4]
-
-// Get random element
-$random = Arr::random([1, 2, 3, 4, 5]); // random element
+Arr::add(["a" => 1], "b", 2); // ['a' => 1, 'b' => 2]
+Arr::get(["a" => 1], "a"); // 1
+Arr::take([1, 2, 3, 4, 5], 3); // [1, 2, 3]
+Arr::nth([10, 20, 30], 1); // 20
+Arr::drop([1, 2, 3], 1); // [1, 3] or shifted
+Arr::compact([0, "", false, "hello"]); // ['hello']
+Arr::except(["a" => 1, "b" => 2], "a"); // ['b' => 2]
+Arr::first([1, 2, 3]); // 1
+Arr::last([1, 2, 3]); // 3
+Arr::only(["a" => 1, "b" => 2], ["a"]); // ['a' => 1]
+Arr::fill([1, 2, 3], "x"); // ['x', 'x', 'x']
+Arr::sort([3, 1, 4]); // [1, 3, 4]
+Arr::unique([1, 2, 2, 3]); // [1, 2, 3]
+Arr::concat([1, 2], [3, 4]); // merged array
+Arr::random([1, 2, 3, 4]); // random element
+Arr::chunk([1, 2, 3, 4], 2); // [[1,2],[3,4]]
+Arr::join(["A", "B"], " "); // "A B"
+Arr::difference([1, 2, 3], [3, 4]); // [1, 2]
 ```
 
 ### String Utilities
 
 ```php
-use Kit\Utils\Str;
+use Kit\Support\Str;
 
-// Convert to uppercase
-$upper = Str::upper('hello'); // 'HELLO'
-
-// Convert to lowercase
-$lower = Str::lower('HELLO'); // 'hello'
-
-// Convert to title case
-$title = Str::title('hello world'); // 'Hello World'
-
-// Capitalize first character
-$capitalize = Str::capitalize('hello'); // 'Hello'
-
-// Check if string contains substring
-$contains = Str::contains('hello world', 'world'); // true
-
-// Check if string starts with substring
-$starts = Str::startsWith('hello world', 'hello'); // true
-
-// Check if string ends with substring
-$ends = Str::endsWith('hello world', 'world'); // true
-
-// Replace substring
-$replace = Str::replace('hello world', 'world', 'php'); // 'hello php'
-
-// Split string
-$split = Str::split('a,b,c', ','); // ['a', 'b', 'c']
-
-// Trim whitespace
-$trim = Str::trim('  hello  '); // 'hello'
-
-// Repeat string
-$repeat = Str::repeat('ha', 3); // 'hahaha'
-
-// Limit string length
-$limit = Str::limit('hello world', 5); // 'hello...'
-
-// Convert to slug
-$slug = Str::slug('My Awesome Post'); // 'my-awesome-post'
-
-// Count characters
-$count = Str::count('hello'); // 5
-
-// Base64 encoding
-$encoded = Str::base64Encode('hello'); // 'aGVsbG8='
-$decoded = Str::base64Decode('aGVsbG8='); // 'hello'
-
-// HTML escape
-$escaped = Str::htmlEscape('<script>'); // '&lt;script&gt;'
-
-// HTML unescape
-$unescaped = Str::htmlUnescape('&lt;script&gt;'); // '<script>'
+Str::upper("hello"); // HELLO
+Str::lower("HELLO"); // hello
+Str::title("hello world"); // Hello World
+Str::snake("fooBar"); // foo_bar
+Str::kebab("fooBar"); // foo-bar
+Str::camel("foo_bar"); // fooBar
+Str::limit("hello world", 5); // hello...
+Str::slug("My Awesome Post"); // My-Awesome-Post
+Str::contains("hello world", "world"); // true
+Str::startsWith("hello", "he"); // true
+Str::endsWith("hello", "lo"); // true
+Str::toBase64("hello"); // aGVsbG8=
+Str::e("<script>"); // &lt;script&gt;
+Str::split("a,b,c", ","); // ['a', 'b', 'c']
+Str::repeat("ha", 3); // hahaha
+Str::reverse("hello"); // olleh
 ```
 
-### File Utilities
+### Binary Encoder
 
 ```php
-use Kit\Utils\Fs\File;
+use Kit\Support\Binary;
 
-// Save file
-$saved = File::save('path/to/file.txt', 'File content');
+$binary = Binary::create("secret-key");
 
-// Read file
-$content = File::get('path/to/file.txt');
-
-// Check if file exists
-$exists = File::has('path/to/file.txt'); // true/false
+$encoded = $binary->encode("Hello");
+$decoded = $binary->decode($encoded); // Hello
 ```
 
 ### Data Structures
@@ -167,196 +102,195 @@ $exists = File::has('path/to/file.txt'); // true/false
 #### Stack (LIFO - Last In First Out)
 
 ```php
-use Kit\Container\Stack;
+use Kit\Structure\Stack;
 
 $stack = new Stack();
+$stack->push("first");
+$stack->push("second");
 
-// Push element
-$stack->push('first');
-$stack->push('second');
-$stack->push('third');
+$stack->pop(); // 'second'
+$stack->isEmpty(); // false
+$stack->toArray(); // ['first']
+```
 
-// Pop element
-$item = $stack->pop(); // 'third'
+#### Queue (FIFO)
 
-// Convert to array
-$array = $stack->toArray(); // ['first', 'second']
+```php
+use Kit\Structure\Queue;
+
+$queue = new Queue();
+$queue->enqueue("first");
+$queue->enqueue("second");
+
+$queue->dequeue(); // 'first'
+$queue->toArray(); // ['second']
 ```
 
 #### HashTable
 
 ```php
-use Kit\Container\HashTable;
+use Kit\Structure\HashTable;
 
 $table = new HashTable();
-
-// Set value
-$table->set('user_1', 'John Doe');
-$table->set('user_2', 'Jane Doe');
-
-// Get value
-$value = $table->get('user_1'); // 'John Doe'
-
-// Check if key exists
-$exists = $table->has('user_1'); // true
-
-// Convert to array
-$all = $table->toArray();
+$table->set("user_1", "John");
+$table->get("user_1"); // John
+$table->has("user_1"); // true
 ```
 
 #### Tree
 
 ```php
-use Kit\Entity\Tree;
+use Kit\Structure\Tree\Tree;
 
-$root = new Tree('Root');
-$child = new Tree('Child');
+$tree = new Tree("Root");
+$tree->add("Child 1");
+$tree->add("Child 2");
 
-// Access value
-echo $root->value; // 'Root'
+$tree->toArray();
 ```
 
 #### Graph
 
 ```php
-use Kit\Contracts\Interfaces\Graph;
+use Kit\Structure\Graph\Graph;
 
 $graph = new Graph();
+$node1 = $graph->addNode("A");
+$node2 = $graph->addNode("B");
 
-// Add nodes
-$node1 = $graph->addNode('Node1');
-$node2 = $graph->addNode('Node2');
-
-// Add edge
 $graph->addEdge($node1, $node2);
-
-// Get node
-$node = $graph->getNode('Node1');
+$graph->getNode("A");
 ```
 
----
+### File System
 
-## 📚 Complete API Reference
+```php
+use Kit\Fs\File;
+use Kit\Fs\Directory;
+use Kit\Fs\Archive;
 
-### Kit\Utils\Arr - Array Methods
+// File
+File::save("file.txt", "content");
+File::get("file.txt");
+File::has("file.txt");
+File::append("file.txt", " more");
+File::delete("file.txt");
+File::copy("a.txt", "b.txt");
+File::size("file.txt");
+File::extension("file.txt"); // txt
+File::hash("file.txt"); // sha256
 
-| Method | Description | Example |
-|--------|-------------|---------|
-| `add(array, key, value)` | Add element to array | `Arr::add($arr, 'id', 1)` |
-| `get(array, key, default)` | Get element from array | `Arr::get($arr, 'id', null)` |
-| `take(array, length)` | Take first N elements | `Arr::take($arr, 3)` |
-| `nth(array, index)` | Get element by index | `Arr::nth($arr, 0)` |
-| `drop(array, index)` | Drop element at index | `Arr::drop($arr, 1)` |
-| `compact(array)` | Remove falsey elements | `Arr::compact($arr)` |
-| `except(array, key)` | Remove specific element | `Arr::except($arr, 'id')` |
-| `first(array)` | Get first element | `Arr::first($arr)` |
-| `last(array)` | Get last element | `Arr::last($arr)` |
-| `only(array, keys)` | Filter by keys | `Arr::only($arr, ['id', 'name'])` |
-| `fill(array, value)` | Fill array with value | `Arr::fill($arr, 'x')` |
-| `sort(array)` | Sort array ascending | `Arr::sort($arr)` |
-| `unique(array)` | Remove duplicates | `Arr::unique($arr)` |
-| `concat(...arrays)` | Concatenate arrays | `Arr::concat($arr1, $arr2)` |
-| `random(array)` | Get random element | `Arr::random($arr)` |
-| `chunk(array, size)` | Split into chunks | `Arr::chunk($arr, 2)` |
-| `column(array, key)` | Extract column | `Arr::column($arr, 'id')` |
-| `reverse(array)` | Reverse array | `Arr::reverse($arr)` |
-| `merge(...arrays)` | Merge arrays | `Arr::merge($arr1, $arr2)` |
-| `values(array)` | Get array values | `Arr::values($arr)` |
+// Directory
+Directory::create("path/to/dir");
+Directory::files("path");
+Directory::directories("path");
+Directory::clean("path");
+Directory::delete("path");
+Directory::size("path");
+Directory::isEmpty("path");
 
-### Kit\Utils\Str - String Methods
+// Archive (Zip)
+$archive = new Archive("backup.zip");
+$archive->addFile("file.txt");
+$archive->addFromString("readme.md", "# Hello");
+$archive->addDirectory("src");
+$archive->comment("Backup");
+$archive->extract("output");
+$archive->close();
+```
 
-| Method | Description | Example |
-|--------|-------------|---------|
-| `upper(string)` | Convert to uppercase | `Str::upper('hello')` |
-| `lower(string)` | Convert to lowercase | `Str::lower('HELLO')` |
-| `title(string)` | Convert to title case | `Str::title('hello world')` |
-| `capitalize(string)` | Capitalize first letter | `Str::capitalize('hello')` |
-| `contains(string, search)` | Check if contains substring | `Str::contains('hello', 'ell')` |
-| `startsWith(string, prefix)` | Check if starts with | `Str::startsWith('hello', 'he')` |
-| `endsWith(string, suffix)` | Check if ends with | `Str::endsWith('hello', 'lo')` |
-| `replace(string, search, replace)` | Replace substring | `Str::replace('hello', 'h', 'H')` |
-| `split(string, separator)` | Split string | `Str::split('a,b,c', ',')` |
-| `trim(string)` | Remove whitespace | `Str::trim('  hello  ')` |
-| `repeat(string, times)` | Repeat string | `Str::repeat('ha', 3)` |
-| `limit(string, length, end)` | Limit string length | `Str::limit('hello world', 5)` |
-| `slug(string)` | Convert to slug | `Str::slug('Hello World')` |
-| `count(string)` | Count characters | `Str::count('hello')` |
-| `base64Encode(string)` | Encode to base64 | `Str::base64Encode('hello')` |
-| `base64Decode(string)` | Decode from base64 | `Str::base64Decode('aGVs...')` |
-| `htmlEscape(string)` | Escape HTML | `Str::htmlEscape('<script>')` |
-| `htmlUnescape(string)` | Unescape HTML | `Str::htmlUnescape('&lt;')` |
-| `reverse(string)` | Reverse string | `Str::reverse('hello')` |
-| `pad(string, length, pad)` | Pad string | `Str::pad('hello', 10, '*')` |
-| `random(length)` | Generate random string | `Str::random(10)` |
+### Network
 
-### Kit\Utils\Fs\File - File Methods
+```php
+use Kit\Net\Url;
+use Kit\Net\Request;
 
-| Method | Description | Example |
-|--------|-------------|---------|
-| `save(path, data)` | Save file | `File::save('file.txt', 'content')` |
-| `get(path)` | Read file | `File::get('file.txt')` |
-| `has(path)` | Check if file exists | `File::has('file.txt')` |
+// URL Parser
+$url = Url::create("https://example.com/path?name=Aref");
+$url->host(); // example.com
+$url->protocol(); // https
+$url->path(); // /path?name=Aref
+$url->query(); // ['name' => 'Aref']
+$url->origin(); // https://example.com
 
-### Kit\Container\Stack - Stack Methods
+// HTTP Request
+$posts = Request::get("https://jsonplaceholder.typicode.com/posts");
+$post = Request::post("https://jsonplaceholder.typicode.com/posts", [
+    "title" => "New Post",
+    "body" => "Content",
+]);
+```
 
-| Method | Description |
-|--------|-------------|
-| `push(value)` | Push element to stack |
-| `pop()` | Pop element from stack |
-| `toArray()` | Convert to array |
+### JSON
 
-### Kit\Container\HashTable - HashTable Methods
+```php
+use Kit\Json\Json;
 
-| Method | Description |
-|--------|-------------|
-| `set(key, value)` | Set value |
-| `get(key)` | Get value |
-| `has(key)` | Check if key exists |
-| `toArray()` | Convert to array |
+$json = Json::encode(["name" => "Aref", "age" => 25]);
+$data = Json::decode($json); // object
+$data = Json::decode($json, true); // array
+```
+
+### Project Structure
+
+```txt
+src/
+├── Support/                 # Array, String, Binary helpers
+│   ├── Arr.php
+│   ├── Str.php
+│   ├── Binary.php
+│   ├── Interfaces/
+│   └── Traits/
+│       ├── Array/
+│       └── String/
+│
+├── Structure/               # Data Structures
+│   ├── Stack.php
+│   ├── Queue.php
+│   ├── HashTable.php
+│   ├── Tree/
+│   ├── Graph/
+│   └── Interfaces/
+│
+├── Fs/                      # File System
+│   ├── File.php
+│   ├── Directory.php
+│   ├── Archive.php
+│   └── Interfaces/
+│
+├── Net/                     # Network utilities
+│   ├── Url.php
+│   ├── Request.php
+│   ├── Http.php
+│   ├── Constants/
+│   ├── Exceptions/
+│   └── Interfaces/
+│
+└── Json/                    # JSON helpers
+    ├── Json.php
+    ├── Exceptions/
+    └── Interfaces/
+```
 
 ---
 
 ## 💡 Practical Examples
 
-### Real-world Data Processing
-
-```php
-use Kit\Utils\Arr;
-use Kit\Utils\Str;
-
-// Sample user data
-$users = [
-    ['id' => 1, 'name' => 'John', 'email' => 'john@example.com', 'status' => 'active'],
-    ['id' => 2, 'name' => 'Jane', 'email' => 'jane@example.com', 'status' => 'inactive'],
-    ['id' => 3, 'name' => 'Bob', 'email' => 'bob@example.com', 'status' => 'active'],
-];
-
-// Get only active users
-$active = array_filter($users, fn($user) => $user['status'] === 'active');
-
-// Extract emails
-$emails = array_map(fn($user) => $user['email'], $users);
-
-// Extract specific fields
-$ids = Arr::column($users, 'id'); // [1, 2, 3]
-```
-
 ### Input Data Cleaning
 
 ```php
-use Kit\Utils\Str;
-use Kit\Utils\Arr;
+use Kit\Support\{Arr, Str};
 
 $input = [
-    'name' => '  John Doe  ',
-    'email' => 'JOHN@EXAMPLE.COM',
-    'description' => '',
-    'website' => null,
+    "name" => "  John Doe  ",
+    "email" => "JOHN@EXAMPLE.COM",
+    "description" => "",
+    "website" => null,
 ];
 
 // Clean input
-$input['name'] = Str::trim($input['name']);
-$input['email'] = Str::lower($input['email']);
+$input["name"] = Str::trim($input["name"]);
+$input["email"] = Str::lower($input["email"]);
 
 // Remove empty values
 $clean = Arr::compact($input);
@@ -367,83 +301,82 @@ $clean = Arr::compact($input);
 ### Working with URLs and Slugs
 
 ```php
-use Kit\Utils\Str;
+use Kit\Support\Str;
 
-$title = 'How to Build a PHP Application';
+$title = "How to Build a PHP Application";
 
 // Create URL-friendly slug
 $slug = Str::slug($title); // 'how-to-build-a-php-application'
 
 // Create filename
-$filename = $slug . '.md'; // 'how-to-build-a-php-application.md'
+$filename = $slug . ".md"; // 'how-to-build-a-php-application.md'
 
 // Check URL patterns
-$isValid = Str::startsWith('https://example.com/api', 'https://');
+$isValid = Str::startsWith("https://example.com/api", "https://");
 ```
 
 ### Working with Configuration
 
 ```php
-use Kit\Utils\Arr;
+use Kit\Support\Arr;
 
 $config = [
-    'app' => ['name' => 'MyApp', 'version' => '1.0'],
-    'db' => ['host' => 'localhost', 'port' => 3306],
-    'cache' => ['driver' => 'redis'],
+    "app" => ["name" => "MyApp", "version" => "1.0"],
+    "db" => ["host" => "localhost", "port" => 3306],
+    "cache" => ["driver" => "redis"],
 ];
 
 // Get specific values
-$appName = Arr::get($config, 'app'); // Using array keys
-$dbHost = Arr::get($config, 'db');
+$appName = Arr::get($config, "app"); // Using array keys
+$dbHost = Arr::get($config, "db");
 
 // Add new config
-$newConfig = Arr::add($config, 'queue', ['driver' => 'redis']);
+$newConfig = Arr::add($config, "queue", ["driver" => "redis"]);
 
 // Get only app config
-$appConfig = Arr::only($config['app'], ['name', 'version']);
+$appConfig = Arr::only($config["app"], ["name", "version"]);
 ```
 
 ### File Operations
 
 ```php
-use Kit\Utils\Fs\File;
+use Kit\Fs\File;
 
 // Save configuration
-$config = ['app' => 'MyApp', 'debug' => true];
-File::save('config.json', json_encode($config));
+$config = ["app" => "MyApp", "debug" => true];
+File::save("config.json", json_encode($config));
 
 // Read configuration
-if (File::has('config.json')) {
-    $content = File::get('config.json');
+if (File::has("config.json")) {
+    $content = File::get("config.json");
     $config = json_decode($content, true);
 }
 
 // Create backup
-$original = File::get('data.txt');
-File::save('data.backup.txt', $original);
+$original = File::get("data.txt");
+File::save("data.backup.txt", $original);
 ```
 
 ### Using Data Structures
 
 ```php
-use Kit\Container\Stack;
-use Kit\Container\HashTable;
+use Kit\Structure\{Stack, HashTable};
 
 // Undo/Redo functionality with Stack
 $stack = new Stack();
-$stack->push('action1');
-$stack->push('action2');
-$stack->push('action3');
+$stack->push("action1");
+$stack->push("action2");
+$stack->push("action3");
 
 $lastAction = $stack->pop(); // 'action3'
 
 // Cache with HashTable
 $cache = new HashTable();
-$cache->set('user:1', ['name' => 'John', 'email' => 'john@example.com']);
-$cache->set('user:2', ['name' => 'Jane', 'email' => 'jane@example.com']);
+$cache->set("user:1", ["name" => "John", "email" => "john@example.com"]);
+$cache->set("user:2", ["name" => "Jane", "email" => "jane@example.com"]);
 
-$user = $cache->get('user:1');
-$hasUser = $cache->has('user:1'); // true
+$user = $cache->get("user:1");
+$hasUser = $cache->has("user:1"); // true
 ```
 
 ---
@@ -451,31 +384,37 @@ $hasUser = $cache->has('user:1'); // true
 ## 🧪 Testing
 
 ### Install Development Dependencies
+
 ```bash
 composer install
 ```
 
 ### Run All Tests
+
 ```bash
 vendor/bin/phpunit
 ```
 
 ### Run Specific Test
+
 ```bash
 vendor/bin/phpunit --filter "testArrayAdd"
 ```
 
 ### Run Tests in Specific File
+
 ```bash
-vendor/bin/phpunit tests/Unit/ArrayTest.php
+vendor/bin/phpunit tests/Unit/Support/ArrTest.php
 ```
 
 ### Generate Code Coverage Report
+
 ```bash
 vendor/bin/phpunit --coverage-html coverage
 ```
 
 ### Run Tests with Verbose Output
+
 ```bash
 vendor/bin/phpunit -v
 ```
@@ -533,6 +472,7 @@ File Operations: I/O limited
 ## 👨‍💻 Author
 
 **Aref Shojaei**
+
 - 📧 Email: [arefshojaei82@gmail.com](mailto:arefshojaei82@gmail.com)
 - 🐙 GitHub: [@ArefShojaei](https://github.com/ArefShojaei)
 - 📦 Packagist: [arefshojaei/kitdash](https://packagist.org/packages/arefshojaei/kitdash)
