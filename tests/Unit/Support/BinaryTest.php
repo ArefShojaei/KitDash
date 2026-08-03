@@ -2,9 +2,10 @@
 
 namespace Tests\Unit\Support;
 
+use PHPUnit\Framework\TestCase;
+
 use Kit\Support\Binary;
 use Kit\Support\Interfaces\Bin as IBinary;
-use PHPUnit\Framework\TestCase;
 
 final class BinaryTest extends TestCase
 {
