@@ -8,7 +8,7 @@ abstract class Http
         string $method,
         string $url,
         array $body = [],
-    ): array|object|null {
+    ): ?string {
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
@@ -24,6 +24,6 @@ abstract class Http
 
         curl_close($curl);
 
-        return json_decode($response) ?? null;
+        return $response ?? null;
     }
 }
