@@ -5,11 +5,11 @@ namespace Kit\Net;
 use Kit\Net\Exceptions\InvalidRequestMethodException;
 
 /**
- * @method static array|object|null get(string $url)
- * @method static array|object|null post(string $url, array $body)
- * @method static array|object|null put(string $url, array $body)
- * @method static array|object|null patch(string $url, array $body)
- * @method static array|object|null delete(string $url, array $body)
+ * @method static mixed get(string $url, array $body = [], array $headers = [])
+ * @method static mixed post(string $url, array $body, array $headers = [])
+ * @method static mixed put(string $url, array $body, array $headers = [])
+ * @method static mixed patch(string $url, array $body, array $headers = [])
+ * @method static mixed delete(string $url, array $body, array $headers = [])
  */
 final class Request extends Http
 {
